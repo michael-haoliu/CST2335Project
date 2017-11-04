@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="string_ActivityTracking">活动跟踪</string>
+    <string name="string_Auto">汽车</string>
+    <string name="app_name">项目</string>
+    <string name="string_food">食品信息</string>
+    <string name="string_houseThermo">温控器</string>
+
+
+</resources>

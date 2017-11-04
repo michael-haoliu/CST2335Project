@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CST2335Project</string>
+    <string name="string_ActivityTracking">Activity Tracking</string>
+    <string name="string_Auto">Automobile</string>
+    <string name="string_food">Food Info</string>
+    <string name="string_houseThermo">House Thermostat</string>
+</resources>
