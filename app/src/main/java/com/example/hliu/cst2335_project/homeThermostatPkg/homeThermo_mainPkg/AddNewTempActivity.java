@@ -102,7 +102,7 @@ public class AddNewTempActivity extends Activity {
                 resultIntent.putExtra("treeMap", listTemp);
                 //-------------------
                 setResult(Activity.RESULT_OK, resultIntent);
-//                finish();
+                finish();
 
 
 
