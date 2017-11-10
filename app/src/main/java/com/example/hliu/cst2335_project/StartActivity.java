@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.hliu.cst2335_project.homeThermostatPkg.AddNewTempActivity;
 // start activity version 3;
 
 //public class StartActivity extends Activity {
@@ -69,7 +71,8 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.ic_house:
-                intent = new Intent(StartActivity.this, HouseThermostatActivity.class);
+                intent = new Intent(StartActivity.this, AddNewTempActivity.class);
+//                intent = new Intent(StartActivity.this, HouseThermostatActivity.class);
                 startActivity(intent);
                 return true;
             default:

@@ -1,17 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+
+<RelativeLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hliu.cst2335_project.HouseThermostatActivity">
+    tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.HouseThermostatActivity">
 
-    <TextView
-        android:id="@+id/textView4"
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_addNewTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="house"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="35dp" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@android:drawable/ic_menu_add"
+        />
+
+    <TextView
+        android:id="@+id/addNewTemp_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="2mm"
+        android:layout_toEndOf="@id/button_addNewTemp"
+        android:text="Add New Temperature Setting" />
+    <!--<Button-->
+        <!--android:id="@+id/button_addTemp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="Add New Temperature Setting" />-->
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/button_addNewTemp" />
+</RelativeLayout>
+
+
+
+
+    <!--&lt;!&ndash;<Button&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/button_addTemp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentEnd="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentBottom="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Add Temp Setting" />&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/temperature"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+
+    <!--&lt;!&ndash;android:layout_alignParentBottom="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toLeftOf="@id/button_addTemp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:inputType="textPersonName"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:hint="set temp" />&ndash;&gt;-->
+
+
+    <!--<ListView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_above="@id/linearLayout_1" />-->
+<!--</RelativeLayout>-->
