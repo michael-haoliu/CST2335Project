@@ -18,17 +18,9 @@
         </activity>
         <activity android:name=".ActivityTrackingActivity" />
         <activity android:name=".FoodInformaitonActivity" />
-        <activity android:name=".homeThermostatPkg.HouseThermostatActivity" />
+        <activity android:name=".homeThermostatPkg.homeThermo_mainPkg.HouseThermostatActivity" />
         <activity android:name=".AutomobileActivity" />
-        <activity
-            android:name=".homeThermostatPkg.setting_eamplePkg.SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".homeThermostatPkg.HouseThermostatActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hliu.cst2335_project.homeThermostatPkg.HouseThermostatActivity" />
-        </activity>
-        <activity android:name=".homeThermostatPkg.AddNewTempActivity"></activity>
+        <activity android:name=".homeThermostatPkg.homeThermo_mainPkg.AddNewTempActivity"></activity>
     </application>
 
 </manifest> <!-- android:theme="@style/AppTheme"> -->

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.AddNewTempActivity">
+    tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.AddNewTempActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout_1"
@@ -35,23 +35,6 @@
             android:entries="@array/stringArray_dayOfWeek"
             />
 
-        <!--</Spinner>-->
-        <!--<Spinner-->
-            <!--android:id="@+id/spinner_dayOfWeek"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="2"-->
-            <!--android:entries="@array/dayOfWeek_arry"-->
-            <!--android:spinnerMode="dialog" />-->
-
-        <!--<EditText-->
-        <!--android:id="@+id/dayOfWeek"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="3"-->
-        <!--android:hint="Day"-->
-        <!--android:inputType="date"-->
-        <!--android:textAlignment="center" />-->
     </LinearLayout>
 
     <LinearLayout

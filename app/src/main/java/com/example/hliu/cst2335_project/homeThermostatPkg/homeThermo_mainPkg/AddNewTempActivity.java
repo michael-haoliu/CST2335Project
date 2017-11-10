@@ -1,6 +1,7 @@
-package com.example.hliu.cst2335_project.homeThermostatPkg;
+package com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,10 +50,13 @@ public class AddNewTempActivity extends Activity {
         spinner_day = (Spinner) findViewById(R.id.spinner);
 
         final EditText temp_editText = (EditText) findViewById(R.id.temperature);
-        listTemp = new TreeMap<>();
-//        Log.i("list temp", "variable declered ok");
 
 
+        listTemp = new TreeMap<>((Map<Integer, Double>) getIntent().getExtras().get("treeMap"));
+        if(listTemp== null){
+            listTemp = new TreeMap<>();
+        }
+        Log.i("list temp", "click the save button " + listTemp.size() + "  " + listTemp.toString() );
 //---------------------------------------------
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,8 +86,8 @@ public class AddNewTempActivity extends Activity {
                 DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting(day, hourInput, minInput, temperature);
 //                Log.i("list temp", "click the save button " + newTemp.toString());
 
+                //------------------add to the treemap
                 listTemp.put(newTemp.getTimeOfWeek(), temperature);
-
                 for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
                     Integer time_key = entry.getKey();
                     Double temp = entry.getValue();
@@ -92,6 +96,16 @@ public class AddNewTempActivity extends Activity {
                     newTemp.setTimeOfWeek(time_key);
                     Log.i("list temp", "click the save button " + newTemp.toString());
                 }
+         //------------------------------------------------
+                //--------pass the current treelist to add
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("treeMap", listTemp);
+                //-------------------
+                setResult(Activity.RESULT_OK, resultIntent);
+//                finish();
+
+
+
             }
         });
 
