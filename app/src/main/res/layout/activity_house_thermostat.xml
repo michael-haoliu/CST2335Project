@@ -38,6 +38,7 @@
         <!--android:text="Add New Temperature Setting" />-->
 
     <ListView
+        android:id="@+id/listView_tempList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"

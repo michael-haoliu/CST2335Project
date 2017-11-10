@@ -115,7 +115,12 @@ public class DTO_TemperatureSetting implements Comparable{
     public String toString() {
         return getDayOfWeek() + " "
                 + getTimeOfDay() + " "
-                + "temp ->" + getTemp();
+                + "temp -> " + getTemp();
+    }
+
+    public String displayTime() {
+        return getDayOfWeek() + " "
+                + getTimeOfDay();
     }
 
     //-----------------------------

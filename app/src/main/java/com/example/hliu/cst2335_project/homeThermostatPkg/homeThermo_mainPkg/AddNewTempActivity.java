@@ -55,8 +55,17 @@ public class AddNewTempActivity extends Activity {
         listTemp = new TreeMap<>((Map<Integer, Double>) getIntent().getExtras().get("treeMap"));
         if(listTemp== null){
             listTemp = new TreeMap<>();
+        }else{
+            DTO_TemperatureSetting tTemp = new DTO_TemperatureSetting();
+            for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
+                Integer time_key = entry.getKey();
+                Double temp = entry.getValue();
+                tTemp.setTemp(temp);
+                tTemp.setTimeOfWeek(time_key);
+                Log.i("list temp", "click the save button - - treeMap Input " + tTemp.toString());
+            }
         }
-        Log.i("list temp", "click the save button " + listTemp.size() + "  " + listTemp.toString() );
+
 //---------------------------------------------
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,13 +74,11 @@ public class AddNewTempActivity extends Activity {
                 int hourInput, minInput;
 
                 day = spinner_day.getSelectedItem().toString();
-                Log.i("list temp", "click the save button " + day );
-
+//                Log.i("list temp", "click the save button " + day );
 
                 hourInput = numberPicker_hour.getValue();
                 minInput = numberPicker_min.getValue();
-                Log.i("list temp", "click the save button " + hourInput + " " + minInput);
-
+//                Log.i("list temp", "click the save button " + hourInput + " " + minInput);
 
                 String s = temp_editText.getText().toString();
                 s= s.trim();
@@ -80,7 +87,7 @@ public class AddNewTempActivity extends Activity {
                 }else{
                     temperature = default_temp;
                 }
-                Log.i("list temp", "click the save button " + temperature);
+//                Log.i("list temp", "click the save button " + temperature);
 
 //                DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
                 DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting(day, hourInput, minInput, temperature);
@@ -88,24 +95,27 @@ public class AddNewTempActivity extends Activity {
 
                 //------------------add to the treemap
                 listTemp.put(newTemp.getTimeOfWeek(), temperature);
+
+
                 for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
                     Integer time_key = entry.getKey();
                     Double temp = entry.getValue();
-
-                    newTemp.setTemp(temp);
-                    newTemp.setTimeOfWeek(time_key);
-                    Log.i("list temp", "click the save button " + newTemp.toString());
+                    DTO_TemperatureSetting dto = new DTO_TemperatureSetting(time_key, temp);
+//                    newTemp.setTemp(temp);
+//                    newTemp.setTimeOfWeek(time_key);
+                    Log.i("list temp", "click the save button - added treeMap " + dto.toString());
                 }
+
          //------------------------------------------------
                 //--------pass the current treelist to add
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("treeMap", listTemp);
+
+                resultIntent.putExtra("newItem_time", newTemp.getTimeOfWeek());
+                resultIntent.putExtra("newItem_temp", newTemp.getTemp());
                 //-------------------
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
-
-
-
             }
         });
 
