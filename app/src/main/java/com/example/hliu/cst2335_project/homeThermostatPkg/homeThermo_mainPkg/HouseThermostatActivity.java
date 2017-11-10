@@ -28,7 +28,7 @@ public class HouseThermostatActivity extends Activity {
         setContentView(R.layout.activity_house_thermostat);
 
         listTemp = new TreeMap<>();
-        listTemp.put(0, 15.0);
+//        listTemp.put(0, 20.0);
 
         floatingActionButton = (FloatingActionButton)findViewById(R.id.button_addNewTemp);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -41,8 +41,8 @@ public class HouseThermostatActivity extends Activity {
                 //-------------------
 
                 TreeMap<Integer, Double> test = (TreeMap<Integer, Double>) intent.getExtras().get("treeMap");
-                System.out.println(" test treemap " + test.size());
-                startActivity(intent);
+//                System.out.println(" test treemap " + test.size());
+//                startActivity(intent);
                 startActivityForResult(intent, ADD_TEMP_REQUEST_CODE);
             }
         });
