@@ -50,27 +50,13 @@ public class HouseThermostatActivity extends Activity {
         arrayListString_listView = new ArrayList<>();
 
         listTemperature = new TreeMap<>();
-//        listTemperature.put(0, 20.0);
+        
 //-------------------------------------
-        // if the arrayListString_listView is saved;
-//        if( (listTemperature !=null) && (!listTemperature.isEmpty()) ){
-//
-//            DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
-//            for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
-//                Integer time_key = entry.getKey();
-//                Double temp = entry.getValue();
-//                newTemp.setTemp(temp);
-//                newTemp.setTimeOfWeek(time_key);
-//                Log.i("list temp", "returned to main - stored data " + newTemp.toString());
-//                arrayListString_listView.add(newTemp.displayTime());
-//            }
-////            tempSetting_adapter.notifyDataSetChanged();
-//        }
-
 //        arrayListString_listView.add("22");
 //        arrayListString_listView.add("33");
 //---------------------------------------------------------
-
+        updateProgressBar(listTemperature);
+        //-------------------
         floatingActionButton = (FloatingActionButton)findViewById(R.id.button_addNewTemp_h);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +121,7 @@ public class HouseThermostatActivity extends Activity {
                     arrayListString_listView.add(newTemp.displayTime());
                 }
 
-                updateProgressBar(listTemperature.size());
+                updateProgressBar(listTemperature);
 //                listView.setAdapter(tempSetting_adapter);
                 tempSetting_adapter.notifyDataSetChanged();
 
@@ -154,32 +140,16 @@ public class HouseThermostatActivity extends Activity {
 //            listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,stringList) );
 //        }
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-//        if(!listTemperature.isEmpty()){
-//            progressBar.setProgress(listTemperature.size());
-//        }
+
+    private void updateProgressBar(TreeMap<Integer, Double> listTemperature){
+        if(listTemperature == null || listTemperature.isEmpty()){
+            progressBar.setProgress(0);
+            countProgress.setText(""+0);
+        }else{
+            progressBar.setProgress(listTemperature.size());
+            countProgress.setText(""+listTemperature.size());
+        }
+
+
     }
-
-    private void updateProgressBar(int count){
-        progressBar.setProgress(listTemperature.size());
-        countProgress.setText(""+count);
-    }
-
-//    private ArrayList<String> getArrayListTodisplay(){
-//        // testing display to the window
-//        DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
-//        for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
-//            Integer time_key = entry.getKey();
-//            Double temp = entry.getValue();
-//            newTemp.setTemp(temp);
-//            newTemp.setTimeOfWeek(time_key);
-//            Log.i("list temp", "returned to main " + newTemp.toString());
-//
-//            arrayListString_listView.add(newTemp.displayTime());
-//        }
-//
-//    }
-
 }// end of class

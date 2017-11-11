@@ -1,6 +1,8 @@
 package com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,8 +29,10 @@ public class AddNewTempActivity extends Activity {
     private double temperature;
 
     private final double default_temp = 20.0;
+    private DTO_TemperatureSetting newTemp;
 
     private TreeMap<Integer, Double> listTemp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,47 +105,67 @@ public class AddNewTempActivity extends Activity {
                 // check if the time exist
 
 
-                DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting(day, hourInput, minInput, temperature);
+                newTemp = new DTO_TemperatureSetting(day, hourInput, minInput, temperature);
 //                Log.i("list temp", "click the save button " + newTemp.toString());
 
                 // time rule exists
+
                 if(listTemp.get(newTemp.getTimeOfWeek()) !=null){
                     // 1. over write
-
-
                     // 2. cancel; restart
+                    AlertDialog.Builder dialogListener = new AlertDialog.Builder(AddNewTempActivity.this);
+                    dialogListener.setTitle(R.string.title_addNew_h);
+                    dialogListener.setMessage(R.string.timeExist_overwriteQuestion_h);
+                    dialogListener.setPositiveButton(R.string.OK_h, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //------------------add to the treemap
+                            addNewTempItem_exit(newTemp);
+                        }
+                    });
 
+                    dialogListener.setNegativeButton(R.string.CANCEL_h, null);
+                    dialogListener.create();
+                    dialogListener.show();
 
+                }else{
+                    addNewTempItem_exit(newTemp);
                 }
-                //------------------add to the treemap
-                listTemp.put(newTemp.getTimeOfWeek(), temperature);
 
-
-                for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
-                    Integer time_key = entry.getKey();
-                    Double temp = entry.getValue();
-                    DTO_TemperatureSetting dto = new DTO_TemperatureSetting(time_key, temp);
-//                    newTemp.setTemp(temp);
-//                    newTemp.setTimeOfWeek(time_key);
-                    Log.i("list temp", "click the save button - added treeMap " + dto.toString());
-                }
-
-         //------------------------------------------------
-
-
-
-                //--------pass the current treelist to add
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("treeMap", listTemp);
-
-                resultIntent.putExtra("newItem_time", newTemp.getTimeOfWeek());
-                resultIntent.putExtra("newItem_temp", newTemp.getTemp());
-                //-------------------
-                setResult(Activity.RESULT_OK, resultIntent);
-                finish();
+//                //------------------add to the treemap
+//                listTemp.put(newTemp.getTimeOfWeek(), temperature);
+//
+//                for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
+//                    Integer time_key = entry.getKey();
+//                    Double temp = entry.getValue();
+//                    DTO_TemperatureSetting dto = new DTO_TemperatureSetting(time_key, temp);
+////                    newTemp.setTemp(temp);
+////                    newTemp.setTimeOfWeek(time_key);
+//                    Log.i("list temp", "click the save button - added treeMap " + dto.toString());
+//                }
             }
         });
+    }
 
+    private void addNewTempItem_exit(DTO_TemperatureSetting newTemp){
+        listTemp.put(newTemp.getTimeOfWeek(), newTemp.getTemp());
+        //--------pass the current treelist to add
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("treeMap", listTemp);
+
+        resultIntent.putExtra("newItem_time", newTemp.getTimeOfWeek());
+        resultIntent.putExtra("newItem_temp", newTemp.getTemp());
+        //-------------------
+        setResult(Activity.RESULT_OK, resultIntent);
+
+        //display for testing
+        for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
+            Integer time_key = entry.getKey();
+            Double temp = entry.getValue();
+            DTO_TemperatureSetting dto = new DTO_TemperatureSetting(time_key, temp);
+            Log.i("list temp", "click the save button - added treeMap " + dto.toString());
+        }
+        finish();
     }
 
 

@@ -34,7 +34,12 @@
         <item>@string/SUNDAY</item>
     </string-array>
 
-
+//---------------dialog listener add new Item
+    <!--<string name="OK">OK</string>-->
+    <string name="OK_h">OK</string>
+    <string name="CANCEL_h">CANCEL</string>
+    <string name="timeExist_overwriteQuestion_h">The temperature rule exists, replace the rule?</string>
+    <string name="title_addNew_h">Add new temperature rule</string>
 
 
 </resources>
