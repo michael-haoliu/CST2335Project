@@ -12,7 +12,7 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/button_addNewTemp"
+        android:id="@+id/button_addNewTemp_h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -21,13 +21,13 @@
         />
 
     <TextView
-        android:id="@+id/addNewTemp_string"
+        android:id="@+id/addNewTemp_string_h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textSize="2mm"
-        android:layout_toEndOf="@id/button_addNewTemp"
+        android:layout_toEndOf="@id/button_addNewTemp_h"
         android:text="Add New Temperature Setting" />
     <!--<Button-->
         <!--android:id="@+id/button_addTemp"-->
@@ -38,13 +38,19 @@
         <!--android:text="Add New Temperature Setting" />-->
 
     <ListView
-        android:id="@+id/listView_tempList"
+        android:id="@+id/listView_tempList_h"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/button_addNewTemp" />
+        android:layout_above="@+id/button_addNewTemp_h" />
+
+    <android.support.v4.widget.ContentLoadingProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/listView_tempList_h"
+        />
 </RelativeLayout>
 
 

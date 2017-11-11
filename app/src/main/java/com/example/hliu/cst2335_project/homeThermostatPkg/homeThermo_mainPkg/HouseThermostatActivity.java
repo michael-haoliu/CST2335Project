@@ -39,7 +39,7 @@ public class HouseThermostatActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_thermostat);
 
-        listView = (ListView) findViewById(R.id.listView_tempList);
+        listView = (ListView) findViewById(R.id.listView_tempList_h);
         arrayListString_listView = new ArrayList<>();
 
         listTemperature = new TreeMap<>();
@@ -64,7 +64,7 @@ public class HouseThermostatActivity extends Activity {
 //        arrayListString_listView.add("33");
 //---------------------------------------------------------
 
-        floatingActionButton = (FloatingActionButton)findViewById(R.id.button_addNewTemp);
+        floatingActionButton = (FloatingActionButton)findViewById(R.id.button_addNewTemp_h);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +93,6 @@ public class HouseThermostatActivity extends Activity {
                         .show();
             }
         });
-
     }// end  method
 
     @Override
