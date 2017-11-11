@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hliu.cst2335_project.R;
 import com.example.hliu.cst2335_project.homeThermostatPkg.DTO.DTO_TemperatureSetting;
@@ -18,7 +21,7 @@ import java.util.TreeMap;
 
 public class HouseThermostatActivity extends Activity {
 
-    private ArrayList<String> arrayList;
+    private ArrayList<String> arrayListString_listView;
 
     private TreeMap<Integer, Double> listTemperature;
 
@@ -26,9 +29,7 @@ public class HouseThermostatActivity extends Activity {
     private final static int ADD_TEMP_REQUEST_CODE = 10;
     private ListView listView;
 
-    private String[] stringList = {"12", "32"};
-
-
+//    private String[] stringList = {"12", "32"};
 //    private ArrayAdapter<String> stringArrayAdapter;
     private TempSetting_Adapter tempSetting_adapter;
 
@@ -39,12 +40,12 @@ public class HouseThermostatActivity extends Activity {
         setContentView(R.layout.activity_house_thermostat);
 
         listView = (ListView) findViewById(R.id.listView_tempList);
-        arrayList = new ArrayList<>();
+        arrayListString_listView = new ArrayList<>();
 
         listTemperature = new TreeMap<>();
 //        listTemperature.put(0, 20.0);
 //-------------------------------------
-        // if the arrayList is saved;
+        // if the arrayListString_listView is saved;
 //        if( (listTemperature !=null) && (!listTemperature.isEmpty()) ){
 //
 //            DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
@@ -54,13 +55,13 @@ public class HouseThermostatActivity extends Activity {
 //                newTemp.setTemp(temp);
 //                newTemp.setTimeOfWeek(time_key);
 //                Log.i("list temp", "returned to main - stored data " + newTemp.toString());
-//                arrayList.add(newTemp.displayTime());
+//                arrayListString_listView.add(newTemp.displayTime());
 //            }
 ////            tempSetting_adapter.notifyDataSetChanged();
 //        }
 
-//        arrayList.add("22");
-//        arrayList.add("33");
+//        arrayListString_listView.add("22");
+//        arrayListString_listView.add("33");
 //---------------------------------------------------------
 
         floatingActionButton = (FloatingActionButton)findViewById(R.id.button_addNewTemp);
@@ -72,7 +73,6 @@ public class HouseThermostatActivity extends Activity {
                 //--------pass the current treelist to add
                 intent.putExtra("treeMap", listTemperature);
                 //-------------------
-
 //                TreeMap<Integer, Double> test = (TreeMap<Integer, Double>) intent.getExtras().get("treeMap");
 //                System.out.println(" test treemap " + test.size());
 //                startActivity(intent);
@@ -81,9 +81,18 @@ public class HouseThermostatActivity extends Activity {
         });
 
         //---------------listview
-
-        tempSetting_adapter = new TempSetting_Adapter(this, arrayList);
+        tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
         listView.setAdapter(tempSetting_adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView textView_selected = (TextView) view.findViewById(R.id.textView_textItem_h);
+
+                Toast.makeText(getApplicationContext(), "Selected Item Name is " + textView_selected.getText().toString(), Toast.LENGTH_LONG)
+                        .show();
+            }
+        });
 
     }// end  method
 
@@ -93,17 +102,17 @@ public class HouseThermostatActivity extends Activity {
             if(resultCode == Activity.RESULT_OK){
 
                 listTemperature = new TreeMap<>((Map<Integer, Double>) data.getExtras().get("treeMap"));
-//                int time_return = data.getIntExtra("newItem_time", 0);
-//                double temp_return = data.getDoubleExtra("newItem_temp", -99999);
+                int time_return = data.getIntExtra("newItem_time", 0);
+                double temp_return = data.getDoubleExtra("newItem_temp", -900);
 
-//                listTemperature.put(time_return, temp_return);//
-//                arrayList.add(new DTO_TemperatureSetting(time_return, temp_return).displayTime());
+//                DTO_TemperatureSetting newTemp_toast = new DTO_TemperatureSetting(time_return, temp_return);
+                Toast.makeText(getApplicationContext(), "New Temperature rule is added: \n" + (new DTO_TemperatureSetting(time_return, temp_return)).toString(), Toast.LENGTH_LONG)
+                        .show();
 
 
-                if(!arrayList.isEmpty()){
-                    arrayList.clear();
+                if(!arrayListString_listView.isEmpty()){
+                    arrayListString_listView.clear();
                 }
-
                 // testing display to the window
                 DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
                 for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
@@ -119,17 +128,17 @@ public class HouseThermostatActivity extends Activity {
 //
 //                    DTO_TemperatureSetting testObj2 = new DTO_TemperatureSetting( (newTemp.displayTime()) );
 //                    Log.i("list temp", "returned to main test2 " + testObj2.toString());
-
-                    arrayList.add(newTemp.displayTime());
+                    arrayListString_listView.add(newTemp.displayTime());
                 }
-
 //                listView.setAdapter(tempSetting_adapter);
                 tempSetting_adapter.notifyDataSetChanged();
 
             }// end if
         }// end if
 
-//        arrayList.add("55");
+
+
+//        arrayListString_listView.add("55");
 //        tempSetting_adapter.notifyDataSetChanged();
 
 //        stringList = stringList2;
@@ -153,7 +162,7 @@ public class HouseThermostatActivity extends Activity {
 //            newTemp.setTimeOfWeek(time_key);
 //            Log.i("list temp", "returned to main " + newTemp.toString());
 //
-//            arrayList.add(newTemp.displayTime());
+//            arrayListString_listView.add(newTemp.displayTime());
 //        }
 //
 //    }
