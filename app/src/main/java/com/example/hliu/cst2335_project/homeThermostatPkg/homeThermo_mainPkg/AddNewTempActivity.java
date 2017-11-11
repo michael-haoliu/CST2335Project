@@ -98,9 +98,21 @@ public class AddNewTempActivity extends Activity {
 //                Log.i("list temp", "click the save button " + temperature);
 
 //                DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
+                // check if the time exist
+
+
                 DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting(day, hourInput, minInput, temperature);
 //                Log.i("list temp", "click the save button " + newTemp.toString());
 
+                // time rule exists
+                if(listTemp.get(newTemp.getTimeOfWeek()) !=null){
+                    // 1. over write
+
+
+                    // 2. cancel; restart
+
+
+                }
                 //------------------add to the treemap
                 listTemp.put(newTemp.getTimeOfWeek(), temperature);
 
@@ -115,6 +127,9 @@ public class AddNewTempActivity extends Activity {
                 }
 
          //------------------------------------------------
+
+
+
                 //--------pass the current treelist to add
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("treeMap", listTemp);
@@ -129,19 +144,23 @@ public class AddNewTempActivity extends Activity {
 
     }
 
-    private boolean isValidTime(){
-//        String day = spinner_day.getSelectedItem().toString();
-//        int hourInput = numberPicker_hour.getValue();
-//        int minInput = numberPicker_min.getMinValue();
-//
-//        String s = ((EditText)findViewById(R.id.temperature)).toString();
-//        temperature = Double.parseDouble( s );
-//
-//        DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting(day, hourInput, minInput, temperature);
 
 
-        return true;
-    }
+//    private boolean isTimeExist(int time){
+//        listTemp
+//
+////        String day = spinner_day.getSelectedItem().toString();
+////        int hourInput = numberPicker_hour.getValue();
+////        int minInput = numberPicker_min.getMinValue();
+////
+////        String s = ((EditText)findViewById(R.id.temperature)).toString();
+////        temperature = Double.parseDouble( s );
+////
+////        DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting(day, hourInput, minInput, temperature);
+//
+//
+//        return true;
+//    }
 
 
 }

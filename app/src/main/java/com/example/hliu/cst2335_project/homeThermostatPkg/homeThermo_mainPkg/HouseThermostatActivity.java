@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,9 @@ public class HouseThermostatActivity extends Activity {
     private final static int ADD_TEMP_REQUEST_CODE = 10;
     private ListView listView;
 
+    private TextView countProgress;
+    private ProgressBar progressBar;
+
 //    private String[] stringList = {"12", "32"};
 //    private ArrayAdapter<String> stringArrayAdapter;
     private TempSetting_Adapter tempSetting_adapter;
@@ -38,6 +42,9 @@ public class HouseThermostatActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_thermostat);
+
+        countProgress = (TextView) findViewById(R.id.progressBar_stringCount_h);
+        progressBar = (ProgressBar)findViewById(R.id.progressBar_h);
 
         listView = (ListView) findViewById(R.id.listView_tempList_h);
         arrayListString_listView = new ArrayList<>();
@@ -127,13 +134,13 @@ public class HouseThermostatActivity extends Activity {
 //                    Log.i("list temp", "returned to main test2 " + testObj2.toString());
                     arrayListString_listView.add(newTemp.displayTime());
                 }
+
+                updateProgressBar(listTemperature.size());
 //                listView.setAdapter(tempSetting_adapter);
                 tempSetting_adapter.notifyDataSetChanged();
 
             }// end if
         }// end if
-
-
 
 //        arrayListString_listView.add("55");
 //        tempSetting_adapter.notifyDataSetChanged();
@@ -147,7 +154,18 @@ public class HouseThermostatActivity extends Activity {
 //            listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,stringList) );
 //        }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        if(!listTemperature.isEmpty()){
+//            progressBar.setProgress(listTemperature.size());
+//        }
+    }
 
+    private void updateProgressBar(int count){
+        progressBar.setProgress(listTemperature.size());
+        countProgress.setText(""+count);
+    }
 
 //    private ArrayList<String> getArrayListTodisplay(){
 //        // testing display to the window

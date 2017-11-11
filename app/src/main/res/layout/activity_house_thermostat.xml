@@ -36,21 +36,59 @@
         <!--android:layout_alignParentBottom="true"-->
         <!--android:layout_centerHorizontal="true"-->
         <!--android:text="Add New Temperature Setting" />-->
+    <LinearLayout
+        android:id="@+id/linearLayout_progressBar_h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/progressBar_stringCount_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="0"/>
+
+        <TextView
+            android:id="@+id/progressBar_stringText_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text=" / 14  " />
+
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar_h"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout_progressBar_h"
+        android:max="14"
+        android:minHeight="5mm"
+        android:minWidth="20mm"
+        android:padding="1mm"
+        android:progress="1"
+        android:indeterminate="false"
+        android:visibility="visible"/>
+
 
     <ListView
         android:id="@+id/listView_tempList_h"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/button_addNewTemp_h"
+        android:layout_below="@id/progressBar_h"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/button_addNewTemp_h" />
+        android:layout_alignParentStart="true" />
 
-    <android.support.v4.widget.ContentLoadingProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/listView_tempList_h"
-        />
+
 </RelativeLayout>
 
 
