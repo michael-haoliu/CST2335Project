@@ -3,11 +3,13 @@ package com.example.hliu.cst2335_project.homeThermostatPkg.DTO;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import java.io.Serializable;
+
 /**
  * Created by H.LIU on 2017-11-08.
  */
 
-public class DTO_TemperatureSetting implements Comparable{
+public class DTO_TemperatureSetting implements Comparable, Serializable{
 
     private String dayOfWeek;
     private String timeOfDay;

@@ -37,7 +37,6 @@ public class HouseThermostatActivity extends Activity {
 //    private ArrayAdapter<String> stringArrayAdapter;
     private TempSetting_Adapter tempSetting_adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +49,42 @@ public class HouseThermostatActivity extends Activity {
         arrayListString_listView = new ArrayList<>();
 
         listTemperature = new TreeMap<>();
-        
+
 //-------------------------------------
 //        arrayListString_listView.add("22");
 //        arrayListString_listView.add("33");
 //---------------------------------------------------------
+        //-----------------
+        if (savedInstanceState != null) {
+            // Restore value of members from saved state
+            listTemperature = (TreeMap<Integer, Double>) savedInstanceState.getSerializable("treeMap");
+        } else {
+            // Probably initialize members with default values for a new instance
+            listTemperature = new TreeMap<>();
+        }
+        //----------------------------------------------------------
+
+                    //testing code
+                    tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
+                    if(!arrayListString_listView.isEmpty()){
+                        arrayListString_listView.clear();
+                    }
+                    // testing display to the window
+                    DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
+                    for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
+                        Integer time_key = entry.getKey();
+                        Double temp = entry.getValue();
+                        newTemp.setTemp(temp);
+                        newTemp.setTimeOfWeek(time_key);
+                        Log.i("list temp", "returned to main " + newTemp.toString());
+                        arrayListString_listView.add(newTemp.displayTime());
+                    }
+
+                    updateProgressBar(listTemperature);
+                    tempSetting_adapter.notifyDataSetChanged();
+
+
+        //-----------------------------
         updateProgressBar(listTemperature);
         //-------------------
         floatingActionButton = (FloatingActionButton)findViewById(R.id.button_addNewTemp_h);
@@ -149,7 +179,13 @@ public class HouseThermostatActivity extends Activity {
             progressBar.setProgress(listTemperature.size());
             countProgress.setText(""+listTemperature.size());
         }
-
-
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("treeMap", listTemperature);
+    }
+
+
 }// end of class
