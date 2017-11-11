@@ -128,7 +128,7 @@ public class HouseThermostatActivity extends Activity {
 
             }// end if
         }// end if
-        
+
 //        arrayList.add("55");
 //        tempSetting_adapter.notifyDataSetChanged();
 
