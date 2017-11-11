@@ -45,19 +45,19 @@ public class HouseThermostatActivity extends Activity {
 //        listTemperature.put(0, 20.0);
 //-------------------------------------
         // if the arrayList is saved;
-        if( (listTemperature !=null) && (!listTemperature.isEmpty()) ){
-
-            DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
-            for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
-                Integer time_key = entry.getKey();
-                Double temp = entry.getValue();
-                newTemp.setTemp(temp);
-                newTemp.setTimeOfWeek(time_key);
-                Log.i("list temp", "returned to main - stored data " + newTemp.toString());
-                arrayList.add(newTemp.displayTime());
-            }
-//            tempSetting_adapter.notifyDataSetChanged();
-        }
+//        if( (listTemperature !=null) && (!listTemperature.isEmpty()) ){
+//
+//            DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
+//            for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
+//                Integer time_key = entry.getKey();
+//                Double temp = entry.getValue();
+//                newTemp.setTemp(temp);
+//                newTemp.setTimeOfWeek(time_key);
+//                Log.i("list temp", "returned to main - stored data " + newTemp.toString());
+//                arrayList.add(newTemp.displayTime());
+//            }
+////            tempSetting_adapter.notifyDataSetChanged();
+//        }
 
 //        arrayList.add("22");
 //        arrayList.add("33");
@@ -73,7 +73,7 @@ public class HouseThermostatActivity extends Activity {
                 intent.putExtra("treeMap", listTemperature);
                 //-------------------
 
-                TreeMap<Integer, Double> test = (TreeMap<Integer, Double>) intent.getExtras().get("treeMap");
+//                TreeMap<Integer, Double> test = (TreeMap<Integer, Double>) intent.getExtras().get("treeMap");
 //                System.out.println(" test treemap " + test.size());
 //                startActivity(intent);
                 startActivityForResult(intent, ADD_TEMP_REQUEST_CODE);
@@ -89,22 +89,20 @@ public class HouseThermostatActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-
         if(requestCode == ADD_TEMP_REQUEST_CODE){
             if(resultCode == Activity.RESULT_OK){
 
                 listTemperature = new TreeMap<>((Map<Integer, Double>) data.getExtras().get("treeMap"));
-
-
 //                int time_return = data.getIntExtra("newItem_time", 0);
 //                double temp_return = data.getDoubleExtra("newItem_temp", -99999);
 
-//                listTemperature.put(time_return, temp_return);
-//
+//                listTemperature.put(time_return, temp_return);//
 //                arrayList.add(new DTO_TemperatureSetting(time_return, temp_return).displayTime());
 
 
+                if(!arrayList.isEmpty()){
+                    arrayList.clear();
+                }
 
                 // testing display to the window
                 DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
@@ -115,20 +113,22 @@ public class HouseThermostatActivity extends Activity {
                     newTemp.setTimeOfWeek(time_key);
                     Log.i("list temp", "returned to main " + newTemp.toString());
 
+                    // testing
+//                    DTO_TemperatureSetting testObj = new DTO_TemperatureSetting( (newTemp.toString()) );
+//                    Log.i("list temp", "returned to main test1 " + testObj.toString());
+//
+//                    DTO_TemperatureSetting testObj2 = new DTO_TemperatureSetting( (newTemp.displayTime()) );
+//                    Log.i("list temp", "returned to main test2 " + testObj2.toString());
+
                     arrayList.add(newTemp.displayTime());
                 }
 
-//                tempSetting_adapter = new TempSetting_Adapter(this, arrayList);
 //                listView.setAdapter(tempSetting_adapter);
-
                 tempSetting_adapter.notifyDataSetChanged();
 
             }// end if
         }// end if
-
-//        if(listTemperature !=null && (!listTemperature.isEmpty())){
-//            stringList = listTemperature.keySet().toArray(new String[listTemperature.size()]);
-//        }
+        
 //        arrayList.add("55");
 //        tempSetting_adapter.notifyDataSetChanged();
 

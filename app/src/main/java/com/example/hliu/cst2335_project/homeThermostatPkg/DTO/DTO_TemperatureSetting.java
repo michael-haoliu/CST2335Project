@@ -30,9 +30,37 @@ public class DTO_TemperatureSetting implements Comparable{
         this.timeOfWeek = totalMin;
         this.temp = temp;
 //        new DTO_TemperatureSetting(totalMin, temp);
-        System.out.println("new constructor " + this.toString());
+        System.out.println("new constructor with string and number input: " + this.toString());
     }
+    public DTO_TemperatureSetting(String day_time_temp) {
+        String[] str = day_time_temp.split(" ");
+        String day = str[0].trim();
+        String time_str= str[1].trim();
+        String temp_str = str[ (str.length-1) ].trim();
 
+        String[] timeString = time_str.split(":");
+        String hour_str = timeString[0].trim();
+        String min_str  = timeString[1].trim();
+
+        try {
+            int hour = Integer.parseInt(hour_str);
+            int min = Integer.parseInt(min_str);
+            int totalMin = converDayToMin(day) + hour * 60 + min;
+
+            this.timeOfWeek = totalMin;
+
+        }catch (Exception e){
+            System.err.println("new constructor bad time string input: " + timeString );
+        }
+        try {
+            Double temp = Double.parseDouble(temp_str);
+            this.temp = temp;
+        }catch (Exception e){
+            this.temp = -900;
+            System.err.println("new constructor bad temperature string input: " + temp_str );
+        }
+        System.out.println("new constructor with String input" + this.toString());
+    }
 
     //------------------
     private int converDayToMin(String dayOfWeek){
@@ -82,7 +110,10 @@ public class DTO_TemperatureSetting implements Comparable{
         int timeOfDay = timeOfWeek % MIN_PER_DAY;
         int hour = timeOfDay/60;
         int min = timeOfDay % 60;
-        return String.format("%d:%d", hour, min);
+
+//        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        return String.format("%02d:%02d", hour, min);
+//        return String.format("%H:%M", hour, min);
     }
 
     //---------------------------

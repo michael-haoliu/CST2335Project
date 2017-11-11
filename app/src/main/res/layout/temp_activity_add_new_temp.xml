@@ -9,7 +9,7 @@
     tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.AddNewTempActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout_1"
+        android:id="@+id/linearLayout_1_h"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -28,7 +28,7 @@
         <!--android:prompt="@string/MONDAY"-->
         <!--android:entries="@array/stringArray_dayOfWeek"-->
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -38,7 +38,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_21"
+        android:id="@+id/linearLayout_21_h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -56,7 +56,7 @@
             android:text="Set hour" />
 
         <NumberPicker
-            android:id="@+id/numberPicker_hours"
+            android:id="@+id/numberPicker_hours_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -82,7 +82,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_22"
+        android:id="@+id/linearLayout_22_h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -101,7 +101,7 @@
             android:text="Set minute" />
 
         <NumberPicker
-            android:id="@+id/numberPicker_min"
+            android:id="@+id/numberPicker_min_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -120,7 +120,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_3"
+        android:id="@+id/linearLayout_3_h"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -138,7 +138,7 @@
             android:text="set temperature" />
 
         <EditText
-            android:id="@+id/temperature"
+            android:id="@+id/temperature_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -150,7 +150,7 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout_5"
+        android:id="@+id/linearLayout_5_h"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -163,7 +163,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button_save"
+            android:id="@+id/button_save_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -171,14 +171,14 @@
             android:text="Save" />
 
         <Button
-            android:id="@+id/button_saveNewRule"
+            android:id="@+id/button_saveNewRule_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="Save as new rule" />
 
         <Button
-            android:id="@+id/button_cancel"
+            android:id="@+id/button_cancel_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

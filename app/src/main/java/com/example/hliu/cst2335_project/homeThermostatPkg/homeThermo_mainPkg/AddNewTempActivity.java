@@ -35,21 +35,21 @@ public class AddNewTempActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.temp_activity_add_new_temp);
 
-        numberPicker_hour = (NumberPicker)findViewById(R.id.numberPicker_hours);
-        numberPicker_min = (NumberPicker)findViewById(R.id.numberPicker_min);
+        numberPicker_hour = (NumberPicker)findViewById(R.id.numberPicker_hours_h);
+        numberPicker_min = (NumberPicker)findViewById(R.id.numberPicker_min_h);
 
         numberPicker_hour.setMinValue(0);
         numberPicker_hour.setMaxValue(23);
         numberPicker_min.setMinValue(0);
         numberPicker_min.setMaxValue(59);
 
-        button_save = (Button)findViewById(R.id.button_save);
-        button_newRule = (Button)findViewById(R.id.button_cancel);
-        button_cancel = (Button)findViewById(R.id.button_cancel);
+        button_save = (Button)findViewById(R.id.button_save_h);
+        button_newRule = (Button)findViewById(R.id.button_cancel_h);
+        button_cancel = (Button)findViewById(R.id.button_cancel_h);
 
-        spinner_day = (Spinner) findViewById(R.id.spinner);
+        spinner_day = (Spinner) findViewById(R.id.spinner_h);
 
-        final EditText temp_editText = (EditText) findViewById(R.id.temperature);
+        final EditText temp_editText = (EditText) findViewById(R.id.temperature_h);
 
 
         listTemp = new TreeMap<>((Map<Integer, Double>) getIntent().getExtras().get("treeMap"));
@@ -67,6 +67,14 @@ public class AddNewTempActivity extends Activity {
         }
 
 //---------------------------------------------
+
+        button_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setResult(Activity.RESULT_CANCELED);
+                finish();
+            }
+        });
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

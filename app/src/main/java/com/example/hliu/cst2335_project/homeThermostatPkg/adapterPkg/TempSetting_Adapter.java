@@ -54,7 +54,7 @@ public class TempSetting_Adapter extends ArrayAdapter<String>{
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View result = mInflater.inflate(R.layout.temp_activity_text_view_item,null);
-        TextView textView = (TextView) result.findViewById(R.id.textView_textItem);
+        TextView textView = (TextView) result.findViewById(R.id.textView_textItem_h);
         textView.setText(getItem(position));
 
 //        TextView textView = (TextView)mInflater.inflate(R.layout.temp_activity_text_view_item, null);
