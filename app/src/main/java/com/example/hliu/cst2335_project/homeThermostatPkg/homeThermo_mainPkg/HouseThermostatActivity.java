@@ -104,8 +104,6 @@ public class HouseThermostatActivity extends Activity {
                 listTemperature = new TreeMap<>((Map<Integer, Double>) data.getExtras().get("treeMap"));
                 int time_return = data.getIntExtra("newItem_time", 0);
                 double temp_return = data.getDoubleExtra("newItem_temp", -900);
-
-//                DTO_TemperatureSetting newTemp_toast = new DTO_TemperatureSetting(time_return, temp_return);
                 Toast.makeText(getApplicationContext(), "New Temperature rule is added: \n" + (new DTO_TemperatureSetting(time_return, temp_return)).toString(), Toast.LENGTH_LONG)
                         .show();
 
