@@ -15,7 +15,7 @@
 
     <!--//&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;    -->
 
-    <string name="chooseDay_string">Choose day of week</string>
+    <!--<string name="chooseDay_string">Choose day of week</string>-->
     <string name="MONDAY">MONDAY</string>
     <string name="TUESDAY">TUESDAY</string>
     <string name="WEDNESDAY">WEDNESDAY</string>
@@ -24,7 +24,7 @@
     <string name="SATURDAY">SATURDAY</string>
     <string name="SUNDAY">SUNDAY</string>
 
-    <string-array name="stringArray_dayOfWeek">
+    <string-array name="stringArray_dayOfWeek_h">
         <item>@string/MONDAY</item>
         <item>@string/TUESDAY</item>
         <item>@string/WEDNESDAY</item>
