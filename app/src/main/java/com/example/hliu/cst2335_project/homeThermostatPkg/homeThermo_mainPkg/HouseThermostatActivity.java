@@ -92,6 +92,22 @@ public class HouseThermostatActivity extends Activity {
 
         //-----------------------------
         updateProgressBar(listTemperature);
+
+
+        //---------------listview
+        tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
+        listView.setAdapter(tempSetting_adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView textView_selected = (TextView) view.findViewById(R.id.textView_textItem_h);
+
+                Toast.makeText(getApplicationContext(), "Selected Item Name is " + textView_selected.getText().toString(), Toast.LENGTH_LONG)
+                        .show();
+            }
+        });
+
         //-------------------
         floatingActionButton = (FloatingActionButton)findViewById(R.id.button_addNewTemp_h);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -109,19 +125,6 @@ public class HouseThermostatActivity extends Activity {
             }
         });
 
-        //---------------listview
-        tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
-        listView.setAdapter(tempSetting_adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TextView textView_selected = (TextView) view.findViewById(R.id.textView_textItem_h);
-
-                Toast.makeText(getApplicationContext(), "Selected Item Name is " + textView_selected.getText().toString(), Toast.LENGTH_LONG)
-                        .show();
-            }
-        });
     }// end  method
 
     @Override

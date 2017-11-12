@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="302dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -16,17 +16,16 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042">
+        app:layout_constraintVertical_bias="0.04">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selected Item"
+            android:text="@string/deleteString_h"
             android:textAlignment="center"
-            android:textSize="25dp" />
+            android:textSize="20sp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -37,26 +36,26 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_fg1_h"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="344dp"
+        android:layout_height="28dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="104dp"
+        android:gravity="center|fill"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06">
+        app:layout_constraintVertical_bias="0.065">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textAlignment="center"
-            android:text="Set Day of Week"
-            tools:text="@string/setDayofWeekString_h" />
+            android:text="@string/setDayofWeekString_h"
+            android:textAlignment="center" />
         <!--android:prompt="@string/MONDAY"-->
         <!--android:entries="@array/stringArray_dayOfWeek"-->
         <Spinner
@@ -64,31 +63,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:textAlignment="center"
-            android:entries="@array/stringArray_dayOfWeek_h" />
+            android:entries="@array/stringArray_dayOfWeek_h"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout_fg21_h"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528">
         <!--android:layout_weight="1"-->
         <TextView
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/setHourString_h" />
+            android:text="@string/setHourString_h"
+            android:textAlignment="center" />
 
         <NumberPicker
             android:id="@+id/numberPicker_hours_fg_h"
@@ -118,25 +118,27 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_fg22_h"
-        android:layout_width="wrap_content"
+        android:layout_width="78dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintHorizontal_bias="0.886"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textAlignment="center"
-            android:text="@string/setMinString_h" />
+            android:text="@string/setMinString_h"
+            android:textAlignment="center" />
 
         <NumberPicker
             android:id="@+id/numberPicker_min_fg_h"
@@ -159,21 +161,23 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_fg3_h"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout_fg5_h"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.788">
 
         <TextView
-            android:layout_width="146dp"
+            android:layout_width="161dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/setTempString_h"
@@ -185,7 +189,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
 
-            android:hint="set temp"
+            android:hint="@string/setTempString_h"
             android:inputType="numberDecimal"
             android:textAlignment="center" />
     </LinearLayout>
@@ -193,13 +197,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_fg5_h"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:dividerPadding="10dp"
+        android:gravity="center|fill"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
