@@ -1,54 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.AddNewTempActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearLayout_1_h"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selected Item"
+            android:textAlignment="center"
+            android:textSize="25dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deleteString_h" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_fg1_h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="@string/setDayofWeekString_h" />
+            android:text="Set Day of Week"
+            tools:text="@string/setDayofWeekString_h" />
         <!--android:prompt="@string/MONDAY"-->
         <!--android:entries="@array/stringArray_dayOfWeek"-->
         <Spinner
-            android:id="@+id/spinner_h"
+            android:id="@+id/spinner_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:textAlignment="center"
-            android:entries="@array/stringArray_dayOfWeek_h"
-            />
+            android:entries="@array/stringArray_dayOfWeek_h" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_21_h"
+        android:id="@+id/linearLayout_fg21_h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <!--android:layout_weight="1"-->
@@ -59,7 +91,7 @@
             android:text="@string/setHourString_h" />
 
         <NumberPicker
-            android:id="@+id/numberPicker_hours_h"
+            android:id="@+id/numberPicker_hours_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -85,15 +117,17 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_22_h"
+        android:id="@+id/linearLayout_fg22_h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.787"
+        app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -105,7 +139,7 @@
             android:text="@string/setMinString_h" />
 
         <NumberPicker
-            android:id="@+id/numberPicker_min_h"
+            android:id="@+id/numberPicker_min_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -124,68 +158,72 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_3_h"
+        android:id="@+id/linearLayout_fg3_h"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="296dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout_fg5_h"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
-            android:layout_width="218dp"
+            android:layout_width="146dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textAlignment="center"
-            android:text="@string/setTempString_h" />
+            android:text="@string/setTempString_h"
+            android:textAlignment="center" />
 
         <EditText
-            android:id="@+id/temperature_h"
-            android:layout_width="250dp"
+            android:id="@+id/temperature_fg_h"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:hint="@string/setTempString_h"
+
+            android:hint="set temp"
             android:inputType="numberDecimal"
             android:textAlignment="center" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:id="@+id/linearLayout_5_h"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_fg5_h"
+        android:layout_width="353dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="388dp"
+        android:layout_marginTop="8dp"
+        android:dividerPadding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:dividerPadding="30dp"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918">
 
         <Button
-            android:id="@+id/button_save_h"
+            android:id="@+id/button_save_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
 
             android:text="@string/saveString_h" />
 
-        <!--<Button-->
-            <!--android:id="@+id/button_saveNewRule_h"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="2"-->
-            <!--android:text="@string/saveAsNewRuleString_h" />-->
+        <Button
+            android:id="@+id/button_saveNewRule_fg_h"
+            android:layout_width="175dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="@string/saveAsNewRuleString_h" />
 
         <Button
-            android:id="@+id/button_cancel_h"
+            android:id="@+id/button_cancel_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -194,8 +232,5 @@
             android:textAlignment="center" />
 
     </LinearLayout>
-
-
-
 
 </android.support.constraint.ConstraintLayout>

@@ -38,6 +38,12 @@ public class HouseThermostatActivity extends Activity {
     private TempSetting_Adapter tempSetting_adapter;
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("treeMap", listTemperature);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_thermostat);
@@ -180,12 +186,5 @@ public class HouseThermostatActivity extends Activity {
             countProgress.setText(""+listTemperature.size());
         }
     }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putSerializable("treeMap", listTemperature);
-    }
-
 
 }// end of class

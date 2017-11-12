@@ -19,10 +19,10 @@ import java.util.ArrayList;
 
 public class TempSetting_Adapter extends ArrayAdapter<String>{
 //    public class TempSetting_Adapter extends ArrayAdapter<String> {
-    Context mContext;
-    ArrayList<String> arrayString_templist;
+    private Context mContext;
+    private ArrayList<String> arrayString_templist;
 //    String[] arrayString_templist;
-    LayoutInflater mInflater;
+    private LayoutInflater mInflater;
 
     public TempSetting_Adapter(@NonNull Context context, ArrayList<String> arrayString_templist) {
         super(context, 0);
