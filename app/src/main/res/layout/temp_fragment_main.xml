@@ -13,11 +13,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Main page "
+        android:text="Main page with Fragment"
         android:textAlignment="center"
         android:textSize="20sp" />
 
-    <FrameLayout
+<!--    <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -25,17 +25,24 @@
         android:id="@+id/tempContainer_h"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp">-->
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:id="@+id/tempContainer_h"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <fragment
             android:name="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.Fragment_editTemp"
             android:id="@+id/my_fragmentLayout_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            tools:layout ="@layout/temp_fragment_temp_setting"
         />
-
-        <!--tools:layout ="@layout/temp_fragment_temp_setting"-->
     </FrameLayout>
+
+
 
     <!--<fragment-->
     <!--android:id="@+id/my_fragmentLayout_edit"-->

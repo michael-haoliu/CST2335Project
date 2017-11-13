@@ -34,7 +34,10 @@ public class HouseThermostatActivity extends Activity {
     private TextView countProgress;
     private ProgressBar progressBar;
 
-//    private String[] stringList = {"12", "32"};
+    private static final String FIRST_USER = "isFirstUser";
+    private static final String storedTreemap = "stored treeMap";
+
+    //    private String[] stringList = {"12", "32"};
 //    private ArrayAdapter<String> stringArrayAdapter;
     private TempSetting_Adapter tempSetting_adapter;
 
@@ -51,7 +54,7 @@ public class HouseThermostatActivity extends Activity {
 
 //---------------------------------
         countProgress = (TextView) findViewById(R.id.progressBar_stringCount_h);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar_h);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar_h);
 
         listView = (ListView) findViewById(R.id.listView_tempList_h);
         arrayListString_listView = new ArrayList<>();
@@ -61,50 +64,33 @@ public class HouseThermostatActivity extends Activity {
 
 //        arrayListString_listView.add("22");
 //        arrayListString_listView.add("33");
-//---------------------------------------------------------
-        //-----------------
-        // Restore value of members from saved state
-        if (savedInstanceState != null) {
-            Serializable serializableObj = savedInstanceState.getSerializable("treeMap");
-            if(serializableObj instanceof TreeMap){
-                listTemperature = (TreeMap<Integer, Double>) serializableObj;
-            }
-
-        } else {
-            // Probably initialize members with default values for a new instance
-            listTemperature = new TreeMap<>();
-        }
-
-
-        //-------------------------------------
-
-
-        //----------------------------------------------------------
-
-                    //testing code
-                    tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
-                    if(!arrayListString_listView.isEmpty()){
-                        arrayListString_listView.clear();
-                    }
-                    // testing display to the window
-                    DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
-                    for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
-                        Integer time_key = entry.getKey();
-                        Double temp = entry.getValue();
-                        newTemp.setTemp(temp);
-                        newTemp.setTimeOfWeek(time_key);
-                        Log.i("list temp", "returned to main " + newTemp.toString());
-                        arrayListString_listView.add(newTemp.displayTime());
-                    }
-
-                    updateProgressBar(listTemperature);
-                    tempSetting_adapter.notifyDataSetChanged();
-                    //-----------------------------
-                    updateProgressBar(listTemperature);
 
         //---------------listview setup
         tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
         listView.setAdapter(tempSetting_adapter);
+//---------------------------------------------------------
+
+
+        //-----------------
+        // Restore value of members from saved state
+        if (savedInstanceState != null) {
+            Serializable serializableObj = savedInstanceState.getSerializable("treeMap");
+            if (serializableObj instanceof TreeMap) {
+                listTemperature = (TreeMap<Integer, Double>) serializableObj;
+                // update list view
+                updateListView_toolbar();
+            }
+        } else {
+            // Probably initialize members with default values for a new instance
+            listTemperature = new TreeMap<>();
+        }
+        //-------------------------------------
+
+        //----------------------------------------------------------
+
+//        //---------------listview setup
+//        tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
+//        listView.setAdapter(tempSetting_adapter);
 
         // list view select
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -121,7 +107,7 @@ public class HouseThermostatActivity extends Activity {
         });
 
         //-------------------
-        floatingActionButton = (FloatingActionButton)findViewById(R.id.button_addNewTemp_h);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.button_addNewTemp_h);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,8 +127,8 @@ public class HouseThermostatActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == ADD_TEMP_REQUEST_CODE){
-            if(resultCode == Activity.RESULT_OK){
+        if (requestCode == ADD_TEMP_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
 
                 listTemperature = new TreeMap<>((Map<Integer, Double>) data.getExtras().get("treeMap"));
                 int time_return = data.getIntExtra("newItem_time", 0);
@@ -150,31 +136,32 @@ public class HouseThermostatActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "New Temperature rule is added: \n" + (new DTO_TemperatureSetting(time_return, temp_return)).toString(), Toast.LENGTH_LONG)
                         .show();
 
+                updateListView_toolbar();
 
-                if(!arrayListString_listView.isEmpty()){
-                    arrayListString_listView.clear();
-                }
-                // testing display to the window
-                DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
-                for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
-                    Integer time_key = entry.getKey();
-                    Double temp = entry.getValue();
-                    newTemp.setTemp(temp);
-                    newTemp.setTimeOfWeek(time_key);
-                    Log.i("list temp", "returned to main " + newTemp.toString());
-
-                    // testing
-//                    DTO_TemperatureSetting testObj = new DTO_TemperatureSetting( (newTemp.toString()) );
-//                    Log.i("list temp", "returned to main test1 " + testObj.toString());
+//                if(!arrayListString_listView.isEmpty()){
+//                    arrayListString_listView.clear();
+//                }
+//                // testing display to the window
+//                DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
+//                for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
+//                    Integer time_key = entry.getKey();
+//                    Double temp = entry.getValue();
+//                    newTemp.setTemp(temp);
+//                    newTemp.setTimeOfWeek(time_key);
+//                    Log.i("list temp", "returned to main " + newTemp.toString());
 //
-//                    DTO_TemperatureSetting testObj2 = new DTO_TemperatureSetting( (newTemp.displayTime()) );
-//                    Log.i("list temp", "returned to main test2 " + testObj2.toString());
-                    arrayListString_listView.add(newTemp.displayTime());
-                }
-
-                updateProgressBar(listTemperature);
-//                listView.setAdapter(tempSetting_adapter);
-                tempSetting_adapter.notifyDataSetChanged();
+//                    // testing
+////                    DTO_TemperatureSetting testObj = new DTO_TemperatureSetting( (newTemp.toString()) );
+////                    Log.i("list temp", "returned to main test1 " + testObj.toString());
+////
+////                    DTO_TemperatureSetting testObj2 = new DTO_TemperatureSetting( (newTemp.displayTime()) );
+////                    Log.i("list temp", "returned to main test2 " + testObj2.toString());
+//                    arrayListString_listView.add(newTemp.displayTime());
+//                }
+//
+//                updateProgressBar(listTemperature);
+////                listView.setAdapter(tempSetting_adapter);
+//                tempSetting_adapter.notifyDataSetChanged();
 
             }// end if
         }// end if
@@ -192,13 +179,40 @@ public class HouseThermostatActivity extends Activity {
 //        }
     }
 
-    private void updateProgressBar(TreeMap<Integer, Double> listTemperature){
-        if(listTemperature == null || listTemperature.isEmpty()){
+    private void updateListView_toolbar() {
+//        tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
+        if (!arrayListString_listView.isEmpty()) {
+            arrayListString_listView.clear();
+        }
+        // testing display to the window
+        DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
+        for (Map.Entry<Integer, Double> entry : listTemperature.entrySet()) {
+            Integer time_key = entry.getKey();
+            Double temp = entry.getValue();
+            newTemp.setTemp(temp);
+            newTemp.setTimeOfWeek(time_key);
+            Log.i("list temp", "returned to main " + newTemp.toString());
+            /*//            testing
+            DTO_TemperatureSetting testObj = new DTO_TemperatureSetting((newTemp.toString()));
+            Log.i("list temp", "returned to main test1 " + testObj.toString());
+
+            DTO_TemperatureSetting testObj2 = new DTO_TemperatureSetting((newTemp.displayTime()));
+            Log.i("list temp", "returned to main test2 " + testObj2.toString());*/
+
+            arrayListString_listView.add(newTemp.displayTime());
+        }
+
+        updateProgressBar(listTemperature);
+        tempSetting_adapter.notifyDataSetChanged();
+    }
+
+    private void updateProgressBar(TreeMap<Integer, Double> listTemperature) {
+        if (listTemperature == null || listTemperature.isEmpty()) {
             progressBar.setProgress(0);
-            countProgress.setText(""+0);
-        }else{
+            countProgress.setText("" + 0);
+        } else {
             progressBar.setProgress(listTemperature.size());
-            countProgress.setText(""+listTemperature.size());
+            countProgress.setText("" + listTemperature.size());
         }
     }
 
