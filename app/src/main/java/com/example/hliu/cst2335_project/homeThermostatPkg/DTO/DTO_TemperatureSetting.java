@@ -1,6 +1,7 @@
 package com.example.hliu.cst2335_project.homeThermostatPkg.DTO;
 
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import java.io.Serializable;
  * Created by H.LIU on 2017-11-08.
  */
 
-public class DTO_TemperatureSetting implements Comparable, Serializable{
+public class DTO_TemperatureSetting extends AppCompatActivity implements Comparable, Serializable{
 
     private String dayOfWeek;
     private String timeOfDay;
@@ -18,6 +19,10 @@ public class DTO_TemperatureSetting implements Comparable, Serializable{
     private double temp;
 
     private static final int MIN_PER_DAY = 1440; //60min * 24 hrs
+
+
+//    private String Mon = getResources().getString(R.string.MONDAY);
+//    private final String[] dayofWeek = getResources().getStringArray(R.array.stringArray_dayOfWeek_h);
 
     public DTO_TemperatureSetting() {
     }
@@ -76,6 +81,7 @@ public class DTO_TemperatureSetting implements Comparable, Serializable{
                 return 2 * MIN_PER_DAY;
             case "THURSDAY":
                 return 3 * MIN_PER_DAY;
+
             case "FRIDAY":
                 return 4 * MIN_PER_DAY;
             case "SATURDAY":
@@ -91,6 +97,7 @@ public class DTO_TemperatureSetting implements Comparable, Serializable{
         int dayOfWeek = timeOfWeek/MIN_PER_DAY;
         switch (dayOfWeek){
             case 0:
+//                return getResources().getString(R.string.MONDAY);
                 return "MONDAY";
             case 1:
                 return "TUESDAY";

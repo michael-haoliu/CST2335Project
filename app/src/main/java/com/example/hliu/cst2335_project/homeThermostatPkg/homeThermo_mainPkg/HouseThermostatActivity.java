@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.hliu.cst2335_project.R;
 import com.example.hliu.cst2335_project.homeThermostatPkg.DTO.DTO_TemperatureSetting;
 import com.example.hliu.cst2335_project.homeThermostatPkg.adapterPkg.TempSetting_Adapter;
+import com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public class HouseThermostatActivity extends Activity {
 
     private FloatingActionButton floatingActionButton;
     private final static int ADD_TEMP_REQUEST_CODE = 10;
+    private final static int EDIT_TEMP_REQUEST_CODE = 11;
+    private final static int DELETE_ITEM =20;
+
     private ListView listView;
 
     private TextView countProgress;
@@ -83,6 +87,7 @@ public class HouseThermostatActivity extends Activity {
         } else {
             // Probably initialize members with default values for a new instance
             listTemperature = new TreeMap<>();
+            updateProgressBar(listTemperature);
         }
         //-------------------------------------
 
@@ -101,8 +106,21 @@ public class HouseThermostatActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "Selected Item Name is " + textView_selected.getText().toString(), Toast.LENGTH_LONG)
                         .show();
 
-                Intent intent = new Intent();
-                setContentView(R.layout.temp_fragment_main);
+                String str_pickedItem = textView_selected.getText().toString();
+
+                DTO_TemperatureSetting picked_obj = new DTO_TemperatureSetting(str_pickedItem);
+                picked_obj.setTemp(listTemperature.get(picked_obj.getTimeOfWeek()) );
+
+                Intent intent = new Intent(HouseThermostatActivity.this, FragmentMainActivity.class);
+
+                // sent data to fragment
+                intent.putExtra("newItem_time", picked_obj.getTimeOfWeek());
+                intent.putExtra("newItem_temp", picked_obj.getTemp());
+                //--------pass the current treelist to add
+                intent.putExtra("treeMap", listTemperature);
+//                startActivity(intent);
+                startActivityForResult(intent, EDIT_TEMP_REQUEST_CODE );
+
             }
         });
 
@@ -137,33 +155,35 @@ public class HouseThermostatActivity extends Activity {
                         .show();
 
                 updateListView_toolbar();
-
-//                if(!arrayListString_listView.isEmpty()){
-//                    arrayListString_listView.clear();
-//                }
-//                // testing display to the window
-//                DTO_TemperatureSetting newTemp = new DTO_TemperatureSetting();
-//                for (Map.Entry<Integer, Double> entry : listTemperature.entrySet() ) {
-//                    Integer time_key = entry.getKey();
-//                    Double temp = entry.getValue();
-//                    newTemp.setTemp(temp);
-//                    newTemp.setTimeOfWeek(time_key);
-//                    Log.i("list temp", "returned to main " + newTemp.toString());
-//
-//                    // testing
-////                    DTO_TemperatureSetting testObj = new DTO_TemperatureSetting( (newTemp.toString()) );
-////                    Log.i("list temp", "returned to main test1 " + testObj.toString());
-////
-////                    DTO_TemperatureSetting testObj2 = new DTO_TemperatureSetting( (newTemp.displayTime()) );
-////                    Log.i("list temp", "returned to main test2 " + testObj2.toString());
-//                    arrayListString_listView.add(newTemp.displayTime());
-//                }
-//
-//                updateProgressBar(listTemperature);
-////                listView.setAdapter(tempSetting_adapter);
-//                tempSetting_adapter.notifyDataSetChanged();
-
             }// end if
+        }else if(requestCode == EDIT_TEMP_REQUEST_CODE ) {
+
+            int time_return     = data.getIntExtra("newItem_time", 0);
+            double temp_return  = data.getDoubleExtra("newItem_temp", -900);
+
+            // same code as before
+            if (resultCode == Activity.RESULT_OK) {
+                listTemperature = new TreeMap<>((Map<Integer, Double>) data.getExtras().get("treeMap"));
+
+                Toast.makeText(getApplicationContext(), "New Temperature rule is edited/saved: \n" + (new DTO_TemperatureSetting(time_return, temp_return)).toString(), Toast.LENGTH_LONG)
+                        .show();
+
+                updateListView_toolbar();
+            }else if (resultCode ==  DELETE_ITEM ) {
+
+                listTemperature.remove(time_return);
+
+                Toast.makeText(getApplicationContext(), "Old Temperature rule is deleted: \n" + (new DTO_TemperatureSetting(time_return, temp_return)).toString(), Toast.LENGTH_LONG)
+                        .show();
+
+                updateListView_toolbar();
+            }else if(resultCode == Activity.RESULT_CANCELED) { // end if
+
+            }else{
+
+            }
+
+
         }// end if
 
 //        arrayListString_listView.add("55");
@@ -201,7 +221,6 @@ public class HouseThermostatActivity extends Activity {
 
             arrayListString_listView.add(newTemp.displayTime());
         }
-
         updateProgressBar(listTemperature);
         tempSetting_adapter.notifyDataSetChanged();
     }

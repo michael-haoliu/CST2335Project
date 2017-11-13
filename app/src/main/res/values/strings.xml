@@ -36,8 +36,12 @@
     <string name="OK_h">OK</string>
     <string name="CANCEL_h">CANCEL</string>
     <string name="timeExist_overwriteQuestion_h">The temperature rule exists, replace the rule?</string>
+    <string name="timeExist_deleteQuestion_h">Delete the temperature rule?</string>
+
     //-----------------add new temp settings
     <string name="title_addNew_h">Add new temperature rule</string>
+    <string name="title_delete_h">Delete temperature rule</string>
+
     <string name="setDayofWeekString_h">Set Day of Week</string>
     <string name="setTempString_h">set temperature</string>
     <string name="setHourString_h">Set hour</string>
@@ -46,6 +50,11 @@
     <string name="deleteString_h">Delete this temperature rule</string>
     <string name="cancelString_h">Cancel</string>
     <string name="saveAsNewRuleString_h">Save as new rule</string>
+
+    <string name="tempRule_selected_String_h">You selected temperature rule: </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

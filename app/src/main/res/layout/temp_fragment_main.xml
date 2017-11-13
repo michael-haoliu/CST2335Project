@@ -11,9 +11,9 @@
     tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
 
     <TextView
+        android:text="Main page with Fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Main page with Fragment"
         android:textAlignment="center"
         android:textSize="20sp" />
 

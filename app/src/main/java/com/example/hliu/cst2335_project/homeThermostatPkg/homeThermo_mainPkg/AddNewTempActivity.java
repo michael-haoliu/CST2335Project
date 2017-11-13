@@ -59,6 +59,8 @@ public class AddNewTempActivity extends Activity {
         if(listTemp == null){
             listTemp = new TreeMap<>();
         }else{
+
+            //test code
             DTO_TemperatureSetting tTemp = new DTO_TemperatureSetting();
             for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
                 Integer time_key = entry.getKey();
@@ -108,7 +110,6 @@ public class AddNewTempActivity extends Activity {
 //                Log.i("list temp", "click the save button " + newTemp.toString());
 
                 // time rule exists
-
                 if(listTemp.get(newTemp.getTimeOfWeek()) !=null){
                     // 1. over write
                     // 2. cancel; restart

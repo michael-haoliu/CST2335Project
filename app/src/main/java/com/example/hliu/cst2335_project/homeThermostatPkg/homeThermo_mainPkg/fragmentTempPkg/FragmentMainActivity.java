@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.example.hliu.cst2335_project.R;
 
 //public class FragmentMainActivity extends FragmentActivity {
-    public class FragmentMainActivity extends Activity {
+public class FragmentMainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,10 +15,10 @@ import com.example.hliu.cst2335_project.R;
 
         Fragment editFragment = new Fragment_editTemp();
 
-//        getFragmentManager()
-//                .beginTransaction()
-//                .add(R.id.tempContainer_h, editFragment)
-//                .commit();
+        getFragmentManager()
+                .beginTransaction()
+                .add(R.id.tempContainer_h, editFragment)
+                .commit();
 
 /*        android.support.v4.app.FragmentTransaction fragmentTransaction_1 = this.getSupportFragmentManager().beginTransaction();
         fragmentTransaction_1.add(tempContainer_h, editFragment)
@@ -31,7 +31,12 @@ import com.example.hliu.cst2335_project.R;
 //        .add(R.id.tempContainer_h, editFragment)*/
     }
 
-//    interface SendMessage{
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//    }
+
+    //    interface SendMessage{
 //        void getData_fromFragment();
 //
 //    }
@@ -40,4 +45,5 @@ import com.example.hliu.cst2335_project.R;
 //    public void onAttachFragment(Fragment fragment) {
 //        super.onAttachFragment(fragment);
 //    }
+
 }
