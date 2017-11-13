@@ -23,11 +23,10 @@
         <activity android:name=".FoodInformaitonActivity" />
         <activity android:name=".homeThermostatPkg.homeThermo_mainPkg.HouseThermostatActivity" />
         <activity android:name=".AutomobileActivity" />
-
         <activity
             android:name=".homeThermostatPkg.homeThermo_mainPkg.AddNewTempActivity"
-            android:configChanges="orientation|keyboardHidden"
-            />
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity"></activity>
     </application>
 
 </manifest> <!-- android:theme="@style/AppTheme"> -->

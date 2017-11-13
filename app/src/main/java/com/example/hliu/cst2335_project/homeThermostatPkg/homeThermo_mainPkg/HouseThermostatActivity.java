@@ -16,12 +16,13 @@ import com.example.hliu.cst2335_project.R;
 import com.example.hliu.cst2335_project.homeThermostatPkg.DTO.DTO_TemperatureSetting;
 import com.example.hliu.cst2335_project.homeThermostatPkg.adapterPkg.TempSetting_Adapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+//public class HouseThermostatActivity extends Activity {
 public class HouseThermostatActivity extends Activity {
-
     private ArrayList<String> arrayListString_listView;
 
     private TreeMap<Integer, Double> listTemperature;
@@ -48,6 +49,7 @@ public class HouseThermostatActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_thermostat);
 
+//---------------------------------
         countProgress = (TextView) findViewById(R.id.progressBar_stringCount_h);
         progressBar = (ProgressBar)findViewById(R.id.progressBar_h);
 
@@ -56,18 +58,27 @@ public class HouseThermostatActivity extends Activity {
 
         listTemperature = new TreeMap<>();
 
-//-------------------------------------
+
 //        arrayListString_listView.add("22");
 //        arrayListString_listView.add("33");
 //---------------------------------------------------------
         //-----------------
+        // Restore value of members from saved state
         if (savedInstanceState != null) {
-            // Restore value of members from saved state
-            listTemperature = (TreeMap<Integer, Double>) savedInstanceState.getSerializable("treeMap");
+            Serializable serializableObj = savedInstanceState.getSerializable("treeMap");
+            if(serializableObj instanceof TreeMap){
+                listTemperature = (TreeMap<Integer, Double>) serializableObj;
+            }
+
         } else {
             // Probably initialize members with default values for a new instance
             listTemperature = new TreeMap<>();
         }
+
+
+        //-------------------------------------
+
+
         //----------------------------------------------------------
 
                     //testing code
@@ -88,16 +99,14 @@ public class HouseThermostatActivity extends Activity {
 
                     updateProgressBar(listTemperature);
                     tempSetting_adapter.notifyDataSetChanged();
+                    //-----------------------------
+                    updateProgressBar(listTemperature);
 
-
-        //-----------------------------
-        updateProgressBar(listTemperature);
-
-
-        //---------------listview
+        //---------------listview setup
         tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
         listView.setAdapter(tempSetting_adapter);
 
+        // list view select
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -105,6 +114,9 @@ public class HouseThermostatActivity extends Activity {
 
                 Toast.makeText(getApplicationContext(), "Selected Item Name is " + textView_selected.getText().toString(), Toast.LENGTH_LONG)
                         .show();
+
+                Intent intent = new Intent();
+                setContentView(R.layout.temp_fragment_main);
             }
         });
 

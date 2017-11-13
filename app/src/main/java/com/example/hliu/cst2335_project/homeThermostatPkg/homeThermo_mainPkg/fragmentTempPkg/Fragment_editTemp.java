@@ -14,12 +14,20 @@ import com.example.hliu.cst2335_project.R;
  */
 
 public class Fragment_editTemp extends Fragment{
-    public Fragment_editTemp(){}
+    public Fragment_editTemp() {
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.temp_fragment_temp_setting,container,false);
+        View view = inflater.inflate(R.layout.temp_fragment_temp_setting, container,false);
         return view;
     }
+//    fragmentLayout_tempEdit_h
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        Log.i("Fragment temp", "Fragment onResume");
+//    }
 }

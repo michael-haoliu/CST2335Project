@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+
+    tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="302dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -27,10 +32,10 @@
             android:textAlignment="center"
             android:textSize="20sp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/deleteString_h" />
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/deleteString_h" />-->
 
     </LinearLayout>
 
@@ -41,23 +46,23 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="8dp"
         android:gravity="center|fill"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.034">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="169dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/setDayofWeekString_h"
-            android:textAlignment="center" />
-        <!--android:prompt="@string/MONDAY"-->
-        <!--android:entries="@array/stringArray_dayOfWeek"-->
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
         <Spinner
             android:id="@+id/spinner_fg_h"
             android:layout_width="wrap_content"
@@ -80,10 +85,11 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528">
-        <!--android:layout_weight="1"-->
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_fg1_h"
+        app:layout_constraintVertical_bias="0.008">
+
         <TextView
             android:layout_width="70dp"
             android:layout_height="wrap_content"
@@ -94,26 +100,6 @@
             android:id="@+id/numberPicker_hours_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-        <!--<Spinner-->
-        <!--android:id="@+id/hour"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="2"-->
-
-        <!--android:entries="@array/dayOfWeek_arry"-->
-        <!--android:prompt="@string/chooseDay_string"-->
-
-        <!--android:spinnerMode="dialog" />-->
-
-        <!--<EditText-->
-        <!--android:id="@+id/timeOfDay"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="3"-->
-        <!--android:hint="Time"-->
-        <!--android:inputType="datetime"-->
-        <!--android:textAlignment="center" />-->
     </LinearLayout>
 
     <LinearLayout
@@ -128,10 +114,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.886"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_fg1_h"
+        app:layout_constraintVertical_bias="0.008">
 
         <TextView
             android:layout_width="wrap_content"
@@ -144,25 +130,12 @@
             android:id="@+id/numberPicker_min_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-        <!--<Spinner-->
-        <!--android:id="@+id/min"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="2"-->
-
-        <!--android:entries="@array/dayOfWeek_arry"-->
-        <!--android:prompt="@string/chooseDay_string"-->
-
-        <!--android:spinnerMode="dialog" />-->
-
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout_fg3_h"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="357dp"
+        android:layout_height="38dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -171,17 +144,18 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_fg21_h"
+        app:layout_constraintVertical_bias="0.043">
 
         <TextView
-            android:layout_width="161dp"
+            android:layout_width="159dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/setTempString_h"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/temperature_fg_h"
@@ -191,14 +165,15 @@
 
             android:hint="@string/setTempString_h"
             android:inputType="numberDecimal"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="14sp" />
     </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/linearLayout_fg5_h"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="349dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -208,32 +183,58 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.918">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_fg21_h"
+        app:layout_constraintVertical_bias="0.327">
 
         <Button
             android:id="@+id/button_save_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
 
             android:text="@string/saveString_h" />
 
         <Button
             android:id="@+id/button_saveNewRule_fg_h"
-            android:layout_width="175dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/saveAsNewRuleString_h" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_fg6_h"
+        android:layout_width="349dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:dividerPadding="10dp"
+        android:gravity="center|fill"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_fg5_h"
+        app:layout_constraintVertical_bias="0.067">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/deleteString_h" />
 
         <Button
             android:id="@+id/button_cancel_fg_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
             android:text="@string/cancelString_h"
             android:textAlignment="center" />
 

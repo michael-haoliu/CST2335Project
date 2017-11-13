@@ -21,7 +21,7 @@ import java.util.TreeMap;
 public class AddNewTempActivity extends Activity {
 
     private Button button_save;
-    private Button button_newRule;
+//    private Button button_newRule;
     private Button button_cancel;
     private NumberPicker numberPicker_hour;
     private NumberPicker numberPicker_min;
@@ -48,7 +48,6 @@ public class AddNewTempActivity extends Activity {
         numberPicker_min.setMaxValue(59);
 
         button_save = (Button)findViewById(R.id.button_save_h);
-        button_newRule = (Button)findViewById(R.id.button_cancel_h);
         button_cancel = (Button)findViewById(R.id.button_cancel_h);
 
         spinner_day = (Spinner) findViewById(R.id.spinner_h);
@@ -57,7 +56,7 @@ public class AddNewTempActivity extends Activity {
 
 
         listTemp = new TreeMap<>((Map<Integer, Double>) getIntent().getExtras().get("treeMap"));
-        if(listTemp== null){
+        if(listTemp == null){
             listTemp = new TreeMap<>();
         }else{
             DTO_TemperatureSetting tTemp = new DTO_TemperatureSetting();

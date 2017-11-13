@@ -10,9 +10,6 @@
     <!-- Strings related to Settings -->
 
 
-
-
-
     <!--//&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;    -->
 
     <!--<string name="chooseDay_string">Choose day of week</string>-->
@@ -34,12 +31,12 @@
         <item>@string/SUNDAY</item>
     </string-array>
 
-//---------------dialog listener add new Item
+    //---------------dialog listener add new Item
     <!--<string name="OK">OK</string>-->
     <string name="OK_h">OK</string>
     <string name="CANCEL_h">CANCEL</string>
     <string name="timeExist_overwriteQuestion_h">The temperature rule exists, replace the rule?</string>
-//-----------------add new temp settings
+    //-----------------add new temp settings
     <string name="title_addNew_h">Add new temperature rule</string>
     <string name="setDayofWeekString_h">Set Day of Week</string>
     <string name="setTempString_h">set temperature</string>
@@ -49,7 +46,6 @@
     <string name="deleteString_h">Delete this temperature rule</string>
     <string name="cancelString_h">Cancel</string>
     <string name="saveAsNewRuleString_h">Save as new rule</string>
-
 
 
 </resources>

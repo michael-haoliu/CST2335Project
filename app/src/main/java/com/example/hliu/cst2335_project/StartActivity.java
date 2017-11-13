@@ -17,6 +17,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+//        setContentView(R.layout.activity_house_thermostat);
 
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar_startPage);
         setSupportActionBar(toolbar);
@@ -71,7 +72,6 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.ic_house:
-//                intent = new Intent(StartActivity.this, AddNewTempActivity.class);
                 intent = new Intent(StartActivity.this, HouseThermostatActivity.class);
                 startActivity(intent);
                 return true;
