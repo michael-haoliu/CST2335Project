@@ -2,8 +2,10 @@ package com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -103,8 +105,8 @@ public class HouseThermostatActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 TextView textView_selected = (TextView) view.findViewById(R.id.textView_textItem_h);
 
-                Toast.makeText(getApplicationContext(), "Selected Item Name is " + textView_selected.getText().toString(), Toast.LENGTH_LONG)
-                        .show();
+//                Toast.makeText(getApplicationContext(), "Selected Item Name is " + textView_selected.getText().toString(), Toast.LENGTH_LONG)
+//                        .show();
 
                 String str_pickedItem = textView_selected.getText().toString();
 
@@ -173,10 +175,11 @@ public class HouseThermostatActivity extends Activity {
 
                 listTemperature.remove(time_return);
 
-                Toast.makeText(getApplicationContext(), "Old Temperature rule is deleted: \n" + (new DTO_TemperatureSetting(time_return, temp_return)).toString(), Toast.LENGTH_LONG)
-                        .show();
+//                Toast.makeText(getApplicationContext(), "Old Temperature rule is deleted: \n" + (new DTO_TemperatureSetting(time_return, temp_return)).toString(), Toast.LENGTH_LONG)
+//                        .show();
 
                 updateListView_toolbar();
+                showSnackBar(time_return, temp_return);
             }else if(resultCode == Activity.RESULT_CANCELED) { // end if
 
             }else{
@@ -235,4 +238,46 @@ public class HouseThermostatActivity extends Activity {
         }
     }
 
+    private void showSnackBar(final int time, final double temp){
+        String str = "You deleted: " + (new DTO_TemperatureSetting(time, temp)).toString();
+
+        Snackbar snackbar = Snackbar.make( findViewById(R.id.coordinatorLayout_temp_h),
+                                        str,
+                                        Snackbar.LENGTH_LONG);
+
+        snackbar.setAction("undo", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Snackbar Action Click!",
+                        Toast.LENGTH_SHORT).show();
+
+                listTemperature.put(Integer.valueOf(time), Double.valueOf(temp));
+                updateListView_toolbar();
+            }
+        });
+
+        snackbar.setActionTextColor(Color.RED);
+        snackbar.show();
+    }
 }// end of class
+
+/*
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_snackbar);
+
+        findViewById(R.id.btnShowSnackbar).setOnClickListener(this);
+        findViewById(R.id.btnShowActionSnackbar).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnShowSnackbar:
+                showSnackbar();
+                break;
+            case R.id.btnShowActionSnackbar:
+                showActionSnackbar();
+                break;
+        }
+    }*/
