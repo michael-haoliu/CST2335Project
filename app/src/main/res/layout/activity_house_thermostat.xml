@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinatorLayout_temp_h"
@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.HouseThermostatActivity">
 
-
+<!--
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button_addNewTemp_h"
             android:layout_width="wrap_content"
@@ -31,7 +31,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.943" />
+            app:layout_constraintVertical_bias="0.943" />-->
+
 
 
         <LinearLayout
@@ -83,16 +84,17 @@
         <!--android:layout_centerHorizontal="true"-->
         <!--android:text="Add New Temperature Setting" />-->
 
-
+        <!--app:layout_constraintBottom_toTopOf="@+id/button_addNewTemp_h"-->
         <ListView
             android:id="@+id/listView_tempList_h"
             android:layout_width="321dp"
-            android:layout_height="398dp"
+            android:layout_height="426dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/button_addNewTemp_h"
+
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
@@ -125,10 +127,25 @@
             app:layout_constraintVertical_bias="0.0" />
 
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button_addNewTemp_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@android:drawable/ic_menu_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <android.support.design.internal.BottomNavigationMenuView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:menu = "@menu/menu_main"/>
+
     </android.support.constraint.ConstraintLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>
 
     <!--&lt;!&ndash;<Button&ndash;&gt;--><!--&lt;!&ndash;android:id="@+id/button_addTemp"&ndash;&gt;--><!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;--><!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;--><!--&lt;!&ndash;android:layout_alignParentEnd="true"&ndash;&gt;--><!--&lt;!&ndash;android:layout_alignParentBottom="true"&ndash;&gt;--><!--&lt;!&ndash;android:text="Add Temp Setting" />&ndash;&gt;--><!--&lt;!&ndash;&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;&ndash;&gt;--><!--&lt;!&ndash;<EditText&ndash;&gt;--><!--&lt;!&ndash;android:id="@+id/temperature"&ndash;&gt;--><!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;--><!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
 
