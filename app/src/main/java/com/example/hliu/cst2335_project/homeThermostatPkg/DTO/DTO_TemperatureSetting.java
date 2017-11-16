@@ -5,6 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by H.LIU on 2017-11-08.
@@ -160,6 +166,44 @@ public class DTO_TemperatureSetting extends AppCompatActivity implements Compara
     }
 
     public String displayTime() {
+        return getDayOfWeek() + " "
+                + getTimeOfDay();
+    }
+
+
+    public int parseDayOfWeek(String day, Locale locale)
+            throws ParseException {
+        SimpleDateFormat dayFormat = new SimpleDateFormat("E", locale);
+        Date date = dayFormat.parse(day);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+
+
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+        dayFormat = new SimpleDateFormat("EEEE", locale);
+        System.out.println("test data: " + dayFormat.format(date) );
+
+        return dayOfWeek;
+    }
+
+/*    SUNDAY
+            MONDAY
+    TUESDAY
+            WEDNESDAY
+    THURSDAY
+            FRIDAY
+    SATURDAY*/
+
+
+
+    public String displayTime_test() {
+        String[] days = new DateFormatSymbols(Locale.getDefault()).getWeekdays();
+
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat( , new DateFormatSymbols())
+
+
         return getDayOfWeek() + " "
                 + getTimeOfDay();
     }
