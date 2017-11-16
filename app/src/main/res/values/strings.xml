@@ -56,5 +56,23 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    //----------------write help-------
+    <!--<emp> Help file for Add new rule </emp>-->
+    <!--<br></br>-->
+    <!--<h2> Help file for Add new rule </h2>-->
+
+    <string name="helpText_stringHTML_Add">
+            <![CDATA[
+             <h1> Help file for Add new rule </h1>
+                <p>This is a html-formatted string with <b>bold</b> and <i>italic</i> text</p>
+                <p>This is another paragraph of the same string.</p>
+            ]]>
+
+    </string>
+
+    <string name="helpText_stringHTML_delete">
+        Help file for delete old rule and undo
+    </string>
+
 
 </resources>

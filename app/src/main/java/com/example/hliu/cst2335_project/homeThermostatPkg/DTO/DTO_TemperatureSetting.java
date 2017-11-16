@@ -21,6 +21,7 @@ public class DTO_TemperatureSetting extends AppCompatActivity implements Compara
     private static final int MIN_PER_DAY = 1440; //60min * 24 hrs
 
 
+
 //    private String Mon = getResources().getString(R.string.MONDAY);
 //    private final String[] dayofWeek = getResources().getStringArray(R.array.stringArray_dayOfWeek_h);
 

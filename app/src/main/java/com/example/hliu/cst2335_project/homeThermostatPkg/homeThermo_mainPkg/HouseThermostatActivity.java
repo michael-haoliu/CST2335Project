@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.hliu.cst2335_project.R;
 import com.example.hliu.cst2335_project.homeThermostatPkg.DTO.DTO_TemperatureSetting;
+import com.example.hliu.cst2335_project.homeThermostatPkg.adapterPkg.HelpActivity;
 import com.example.hliu.cst2335_project.homeThermostatPkg.adapterPkg.TempSetting_Adapter;
 import com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity;
 
@@ -26,22 +30,22 @@ import java.util.TreeMap;
 
 //public class HouseThermostatActivity extends Activity {
 public class HouseThermostatActivity extends Activity {
-    private ArrayList<String> arrayListString_listView;
+    private static final String FIRST_USER = "isFirstUser";
+    private static final String storedTreemap = "stored treeMap";
 
-    private TreeMap<Integer, Double> listTemperature;
-
-    private FloatingActionButton floatingActionButton;
     private final static int ADD_TEMP_REQUEST_CODE = 10;
     private final static int EDIT_TEMP_REQUEST_CODE = 11;
     private final static int DELETE_ITEM =20;
 
-    private ListView listView;
+    private ArrayList<String> arrayListString_listView;
+    private TreeMap<Integer, Double> listTemperature;
 
     private TextView countProgress;
     private ProgressBar progressBar;
 
-    private static final String FIRST_USER = "isFirstUser";
-    private static final String storedTreemap = "stored treeMap";
+    private ListView listView;
+    private FloatingActionButton floatingActionButton;
+    private BottomNavigationView bottomNavigationView;
 
     //    private String[] stringList = {"12", "32"};
 //    private ArrayAdapter<String> stringArrayAdapter;
@@ -59,14 +63,17 @@ public class HouseThermostatActivity extends Activity {
         setContentView(R.layout.activity_house_thermostat);
 
 //---------------------------------
-        countProgress = (TextView) findViewById(R.id.progressBar_stringCount_h);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar_h);
+        countProgress = findViewById(R.id.progressBar_stringCount_h);
+        progressBar = findViewById(R.id.progressBar_h);
 
-        listView = (ListView) findViewById(R.id.listView_tempList_h);
+        listView = findViewById(R.id.listView_tempList_h);
+
+        floatingActionButton = findViewById(R.id.button_addNewTemp_h);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar_help_h);
+
         arrayListString_listView = new ArrayList<>();
 
         listTemperature = new TreeMap<>();
-
 
 //        arrayListString_listView.add("22");
 //        arrayListString_listView.add("33");
@@ -75,7 +82,6 @@ public class HouseThermostatActivity extends Activity {
         tempSetting_adapter = new TempSetting_Adapter(this, arrayListString_listView);
         listView.setAdapter(tempSetting_adapter);
 //---------------------------------------------------------
-
 
         //-----------------
         // Restore value of members from saved state
@@ -103,7 +109,7 @@ public class HouseThermostatActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TextView textView_selected = (TextView) view.findViewById(R.id.textView_textItem_h);
+                TextView textView_selected = view.findViewById(R.id.textView_textItem_h);
 
 //                Toast.makeText(getApplicationContext(), "Selected Item Name is " + textView_selected.getText().toString(), Toast.LENGTH_LONG)
 //                        .show();
@@ -122,12 +128,10 @@ public class HouseThermostatActivity extends Activity {
                 intent.putExtra("treeMap", listTemperature);
 //                startActivity(intent);
                 startActivityForResult(intent, EDIT_TEMP_REQUEST_CODE );
-
             }
         });
 
         //-------------------
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.button_addNewTemp_h);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,6 +144,27 @@ public class HouseThermostatActivity extends Activity {
 //                System.out.println(" test treemap " + test.size());
 //                startActivity(intent);
                 startActivityForResult(intent, ADD_TEMP_REQUEST_CODE);
+            }
+        });
+
+        //------------------------------
+        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                Intent intent = new Intent(HouseThermostatActivity.this, HelpActivity.class);
+                switch(item.getItemId()){
+                    case R.id.nav_addNew_h:
+                        intent.putExtra("helpItem", "helpAdd");
+//                        Toast.makeText(getApplicationContext(), "Navigation bar add Clicked!",
+//                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_delete_Undo_h:
+                        intent.putExtra("helpItem", "helpDelete");
+//                        Toast.makeText(getApplicationContext(), "Navigation bar delete Clicked!",
+//                                Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                startActivity(intent);
             }
         });
 
@@ -259,7 +284,18 @@ public class HouseThermostatActivity extends Activity {
         snackbar.setActionTextColor(Color.RED);
         snackbar.show();
     }
+
+    //--------------help file
+    private void helpFile(){
+
+
+
+    }
+
+
 }// end of class
+
+
 
 /*
     protected void onCreate(Bundle savedInstanceState) {

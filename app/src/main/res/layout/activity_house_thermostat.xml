@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:design="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout_temp_h"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <android.support.constraint.ConstraintLayout
 
@@ -17,7 +20,7 @@
         android:layout_height="match_parent"
         tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.HouseThermostatActivity">
 
-<!--
+        <!--
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button_addNewTemp_h"
             android:layout_width="wrap_content"
@@ -32,7 +35,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.943" />-->
-
 
 
         <LinearLayout
@@ -88,7 +90,7 @@
         <ListView
             android:id="@+id/listView_tempList_h"
             android:layout_width="321dp"
-            android:layout_height="426dp"
+            android:layout_height="418dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -133,14 +135,46 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:src="@android:drawable/ic_menu_add"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.929"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/listView_tempList_h"
+            app:layout_constraintVertical_bias="0.85" />
 
         <android.support.design.internal.BottomNavigationMenuView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:menu = "@menu/menu_main"/>
+            app:menu="@menu/menu_main" />
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigationBar_help_h"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimary"
+
+            android:clickable="true"
+            android:focusable="auto"
+            android:scrollbarThumbHorizontal="@menu/menu_temp_navigation_h"
+
+
+            app:itemTextColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listView_tempList_h"
+            app:layout_constraintVertical_bias="1.0"
+            design:menu="@menu/menu_temp_navigation_h" />
+
 
     </android.support.constraint.ConstraintLayout>
 

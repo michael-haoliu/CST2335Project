@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:design="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout_temp_h"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:layout_height="523dp"
+        android:orientation="vertical"
+        tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.HouseThermostatActivity"
+        tools:layout_editor_absoluteY="77dp">
+        <!---->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout_progressBar_h"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/progressBar_stringCount_h"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/progressBar_stringText_h"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" / 14  " />
+        </LinearLayout>
+
+
+        <ProgressBar
+            android:id="@+id/progressBar_h"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:indeterminate="false"
+            android:max="14"
+            android:minHeight="5dp"
+
+            android:minWidth="20dp"
+            android:padding="1dp"
+            android:progress="1"
+            android:visibility="visible" />
+
+
+        <ListView
+            android:id="@+id/listView_tempList_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button_addNewTemp_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_add" />
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigationBar_help_h"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary"
+            android:clickable="true"
+            android:focusable="auto"
+
+            android:scrollbarThumbHorizontal="@menu/menu_temp_navigation_h"
+            app:itemTextColor="@color/colorAccent"
+
+            design:menu="@menu/menu_temp_navigation_h"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="456dp" />
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--&lt;!&ndash;<Button&ndash;&gt;--><!--&lt;!&ndash;android:id="@+id/button_addTemp"&ndash;&gt;--><!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;--><!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;--><!--&lt;!&ndash;android:layout_alignParentEnd="true"&ndash;&gt;--><!--&lt;!&ndash;android:layout_alignParentBottom="true"&ndash;&gt;--><!--&lt;!&ndash;android:text="Add Temp Setting" />&ndash;&gt;--><!--&lt;!&ndash;&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;&ndash;&gt;--><!--&lt;!&ndash;<EditText&ndash;&gt;--><!--&lt;!&ndash;android:id="@+id/temperature"&ndash;&gt;--><!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;--><!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+
+    <!--&lt;!&ndash;android:layout_alignParentBottom="true"&ndash;&gt;--><!--&lt;!&ndash;android:layout_toLeftOf="@id/button_addTemp"&ndash;&gt;--><!--&lt;!&ndash;android:inputType="textPersonName"&ndash;&gt;--><!--&lt;!&ndash;android:hint="set temp" />&ndash;&gt;-->
+
+
+    <!--<ListView--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:layout_alignParentEnd="true"--><!--android:layout_alignParentStart="true"--><!--android:layout_alignParentTop="true"--><!--android:layout_above="@id/linearLayout_1" />--><!--</RelativeLayout>-->
