@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="cst2335.groupproject.PkgActivity.ActivityMenuHelp$PlaceholderFragment">
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/section_label"
