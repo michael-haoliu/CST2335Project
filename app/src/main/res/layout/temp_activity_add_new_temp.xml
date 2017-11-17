@@ -8,7 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PkgHouse.homeThermo_mainPkg.AddNewTempActivity">
+    tools:context="com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg.AddNewTempActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout_1_h"

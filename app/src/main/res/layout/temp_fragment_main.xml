@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PkgHouse.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
+    tools:context="com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
 
     <TextView
         android:text="Main page with Fragment"

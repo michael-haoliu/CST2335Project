@@ -13,12 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
-import com.example.hliu.cst2335_project.R;
 import com.example.hliu.cst2335_project.PkgHouse.DTO.DTO_TemperatureSetting;
+import com.example.hliu.cst2335_project.R;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -27,15 +27,17 @@ import java.util.TreeMap;
  * Created by H.LIU on 2017-11-12.
  */
 
-public class Fragment_editTemp extends Fragment{
+public class Fragment_editTemp extends Fragment {
     private Button button_save;
     private Button button_cancel;
     private Button button_newRule;
     private Button button_delete;
 
 
-    private NumberPicker numberPicker_hour;
-    private NumberPicker numberPicker_min;
+    //    private NumberPicker numberPicker_hour;
+//    private NumberPicker numberPicker_min;
+    private TimePicker timePicker;
+
     private Spinner spinner_day;
     private double temperature;
 
@@ -49,7 +51,8 @@ public class Fragment_editTemp extends Fragment{
 
     private View myView;
 
-    private static final int DELETE_ITEM =20;
+    private static final int DELETE_ITEM = 20;
+
     //--------------------------------------------
     public Fragment_editTemp() {
     }
@@ -57,7 +60,7 @@ public class Fragment_editTemp extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.temp_fragment_temp_setting, container,false);
+        View view = inflater.inflate(R.layout.temp_fragment_temp_setting, container, false);
         myView = view;
         return view;
     }
@@ -75,14 +78,18 @@ public class Fragment_editTemp extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        timePicker = myView.findViewById(R.id.timePicker_fg_h);
+        timePicker.setIs24HourView(true);
 
-        numberPicker_hour = myView.findViewById(R.id.numberPicker_hours_fg_h);
-        numberPicker_min = myView.findViewById(R.id.numberPicker_min_fg_h);
 
-        numberPicker_hour.setMinValue(0);
-        numberPicker_hour.setMaxValue(23);
-        numberPicker_min.setMinValue(0);
-        numberPicker_min.setMaxValue(59);
+
+//        numberPicker_hour = myView.findViewById(R.id.numberPicker_hours_fg_h);
+//        numberPicker_min = myView.findViewById(R.id.numberPicker_min_fg_h);
+//
+//        numberPicker_hour.setMinValue(0);
+//        numberPicker_hour.setMaxValue(23);
+//        numberPicker_min.setMinValue(0);
+//        numberPicker_min.setMaxValue(59);
 
         button_save = myView.findViewById(R.id.button_save_fg_h);
         button_cancel = myView.findViewById(R.id.button_cancel_fg_h);
@@ -100,15 +107,15 @@ public class Fragment_editTemp extends Fragment{
         temperature_msg = getActivity().getIntent().getDoubleExtra("newItem_temp", -900);
 
 
-        String str = (new DTO_TemperatureSetting(time_msg,temperature_msg)).toString();
+        String str = (new DTO_TemperatureSetting(time_msg, temperature_msg)).toString();
 
         TextView title = myView.findViewById(R.id.stringText_mainfragement_title);
 //        str = R.string.tempRule_selected_String_h + str;
         title.setText(str);
 
-        if(listTemp == null){
+        if (listTemp == null) {
             listTemp = new TreeMap<>();
-        }else{
+        } else {
         }
 
 
@@ -153,15 +160,18 @@ public class Fragment_editTemp extends Fragment{
                 day = spinner_day.getSelectedItem().toString();
 //                Log.i("list temp", "click the save button " + day );
 
-                hourInput = numberPicker_hour.getValue();
-                minInput = numberPicker_min.getValue();
+//                hourInput = numberPicker_hour.getValue();
+//                minInput = numberPicker_min.getValue();
+                hourInput = timePicker.getCurrentHour();
+                minInput = timePicker.getCurrentMinute();
+
 //                Log.i("list temp", "click the save button " + hourInput + " " + minInput);
 
                 String s = temp_editText.getText().toString();
-                s= s.trim();
-                if((!s.equals(""))){
-                    temperature = Double.parseDouble( s );
-                }else{
+                s = s.trim();
+                if ((!s.equals(""))) {
+                    temperature = Double.parseDouble(s);
+                } else {
                     temperature = default_temp;
                 }
 //                Log.i("list temp", "click the save button " + temperature);
@@ -174,7 +184,7 @@ public class Fragment_editTemp extends Fragment{
 //                Log.i("list temp", "click the save button " + newTemp.toString());
 
                 // time rule exists
-                if(listTemp.get(newTemp.getTimeOfWeek()) !=null){
+                if (listTemp.get(newTemp.getTimeOfWeek()) != null) {
                     // 1. over write
                     // 2. cancel; restart
 
@@ -193,7 +203,7 @@ public class Fragment_editTemp extends Fragment{
                     dialogListener.create();
                     dialogListener.show();
 
-                }else{
+                } else {
                     addNewTempItem_exit(newTemp);
                 }
 
@@ -212,7 +222,7 @@ public class Fragment_editTemp extends Fragment{
         });
     }
 
-    private void addNewTempItem_exit(DTO_TemperatureSetting newTemp){
+    private void addNewTempItem_exit(DTO_TemperatureSetting newTemp) {
         listTemp.put(newTemp.getTimeOfWeek(), newTemp.getTemp());
         //--------pass the current treelist to add
         Intent resultIntent = new Intent();
@@ -224,7 +234,7 @@ public class Fragment_editTemp extends Fragment{
         getActivity().setResult(Activity.RESULT_OK, resultIntent);
 
         //display for testing
-        for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
+        for (Map.Entry<Integer, Double> entry : listTemp.entrySet()) {
             Integer time_key = entry.getKey();
             Double temp = entry.getValue();
             DTO_TemperatureSetting dto = new DTO_TemperatureSetting(time_key, temp);
@@ -233,7 +243,7 @@ public class Fragment_editTemp extends Fragment{
         getActivity().finish();
     }
 
-    private void deleteTempItem_exit(DTO_TemperatureSetting newTemp){
+    private void deleteTempItem_exit(DTO_TemperatureSetting newTemp) {
 
 //        listTemp.put(newTemp.getTimeOfWeek(), newTemp.getTemp());
         //--------pass the current treelist to add
@@ -251,7 +261,7 @@ public class Fragment_editTemp extends Fragment{
         getActivity().setResult(DELETE_ITEM, resultIntent);
 
         //display for testing
-        for (Map.Entry<Integer, Double> entry : listTemp.entrySet() ) {
+        for (Map.Entry<Integer, Double> entry : listTemp.entrySet()) {
             Integer time_key = entry.getKey();
             Double temp = entry.getValue();
             DTO_TemperatureSetting dto = new DTO_TemperatureSetting(time_key, temp);
