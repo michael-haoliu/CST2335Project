@@ -15,6 +15,12 @@ tools:context="com.example.hliu.cst2335_project.AutomobileActivity">
     tools:layout_editor_absoluteX="16dp"
     tools:layout_editor_absoluteY="32dp" />
 
+    <TimePicker
+        android:id="@+id/timePicker1_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        />
 
 
 

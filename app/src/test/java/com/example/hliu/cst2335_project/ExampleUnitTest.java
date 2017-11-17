@@ -23,8 +23,16 @@ public class ExampleUnitTest {
     @Test
     public void testclass1() throws Exception {
         DTO_TemperatureSetting tempObj = new DTO_TemperatureSetting("Monday", 2, 10, 20);
-
         System.out.println("added temp rule is " + tempObj.toString());
+
+        DTO_TemperatureSetting tempObj2 = new DTO_TemperatureSetting("Monday 02:11 Temp -> 20");
+        System.out.println("added temp rule is " + tempObj2.toString());
+
+        Locale.setDefault(Locale.CHINESE);
+        DTO_TemperatureSetting tempObj1 = new DTO_TemperatureSetting("星期日", 2, 10, 20);
+
+        System.out.println("added temp rule is " + tempObj1.toString());
+        System.out.println("--------------------------");
 
 //        String sunday = "Sunday";
 ////        System.out.println("test data: " + DayOfWeek.valueOf(sunday));
@@ -59,19 +67,19 @@ public class ExampleUnitTest {
         System.out.println("-------------");
         int minOfWeek = tempObj.parseMinOfWeek("Sunday 01:10", Locale.US);
         System.out.println(minOfWeek);
-        String string = tempObj.getStringDayOfWeek(minOfWeek, Locale.US);
+        String string = tempObj.getStringEEEE_HH_mm(minOfWeek, Locale.US);
 
         minOfWeek = tempObj.parseMinOfWeek("SATURDAY 00:01", Locale.US);
         System.out.println(minOfWeek);
-        string = tempObj.getStringDayOfWeek(minOfWeek, Locale.US);
+        string = tempObj.getStringEEEE_HH_mm(minOfWeek, Locale.US);
 
         minOfWeek = tempObj.parseMinOfWeek("SATURDAY 23:59", Locale.US);
         System.out.println(minOfWeek);
-        string = tempObj.getStringDayOfWeek(minOfWeek, Locale.US);
+        string = tempObj.getStringEEEE_HH_mm(minOfWeek, Locale.US);
 
         minOfWeek = tempObj.parseMinOfWeek("SATURDAY 11:59", Locale.US);
         System.out.println(minOfWeek);
-        string = tempObj.getStringDayOfWeek(minOfWeek, Locale.US);
+        string = tempObj.getStringEEEE_HH_mm(minOfWeek, Locale.US);
 
         assertEquals(4, 2 + 2);
     }

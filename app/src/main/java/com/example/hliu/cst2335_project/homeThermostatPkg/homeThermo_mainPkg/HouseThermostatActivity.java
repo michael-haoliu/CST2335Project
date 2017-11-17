@@ -25,6 +25,7 @@ import com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fra
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -247,7 +248,7 @@ public class HouseThermostatActivity extends Activity {
             DTO_TemperatureSetting testObj2 = new DTO_TemperatureSetting((newTemp.displayTime()));
             Log.i("list temp", "returned to main test2 " + testObj2.toString());*/
 
-            arrayListString_listView.add(newTemp.displayTime());
+            arrayListString_listView.add(newTemp.displayTime(Locale.getDefault()));
         }
         updateProgressBar(listTemperature);
         tempSetting_adapter.notifyDataSetChanged();
