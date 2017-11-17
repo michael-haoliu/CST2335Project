@@ -1,6 +1,6 @@
 package com.example.hliu.cst2335_project;
 
-import com.example.hliu.cst2335_project.homeThermostatPkg.DTO.DTO_TemperatureSetting;
+import com.example.hliu.cst2335_project.PkgHouse.DTO.DTO_TemperatureSetting;
 
 import org.junit.Test;
 

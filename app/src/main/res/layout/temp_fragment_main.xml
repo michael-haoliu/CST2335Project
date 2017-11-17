@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
+    tools:context=".PkgHouse.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
 
     <TextView
         android:text="Main page with Fragment"
@@ -34,7 +34,7 @@
         android:layout_height="match_parent">
 
         <fragment
-            android:name="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.Fragment_editTemp"
+            android:name="com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg.fragmentTempPkg.Fragment_editTemp"
             android:id="@+id/my_fragmentLayout_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

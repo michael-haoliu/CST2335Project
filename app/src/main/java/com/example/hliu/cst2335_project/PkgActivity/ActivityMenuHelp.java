@@ -1,4 +1,4 @@
-package com.example.hliu.cst2335_project.ActivityTrackingPkg;
+package com.example.hliu.cst2335_project.PkgActivity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;

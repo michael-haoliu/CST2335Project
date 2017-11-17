@@ -1,4 +1,4 @@
-package com.example.hliu.cst2335_project.homeThermostatPkg.adapterPkg;
+package com.example.hliu.cst2335_project.PkgHouse.adapterPkg;
 
 import android.app.Activity;
 import android.os.Bundle;

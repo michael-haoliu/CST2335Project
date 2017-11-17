@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.adapterPkg.HelpActivity">
+    tools:context=".PkgHouse.adapterPkg.HelpActivity">
 
     <TextView
         android:id="@+id/helptextID_h"

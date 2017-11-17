@@ -1,7 +1,9 @@
-package com.example.hliu.cst2335_project;
+package com.example.hliu.cst2335_project.PkgAutomobile;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.example.hliu.cst2335_project.R;
 
 public class AutomobileActivity extends Activity {
 

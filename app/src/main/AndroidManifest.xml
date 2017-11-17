@@ -11,29 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity">
+        <activity
+            android:name=".PkgHome.Home"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityTrackingActivity" />
-        <activity android:name=".FoodInformaitonActivity" />
-        <activity android:name=".homeThermostatPkg.homeThermo_mainPkg.HouseThermostatActivity" />
-        <activity android:name=".AutomobileActivity" />
+        <activity android:name=".PkgFood.FoodInformaitonActivity" />
+        <activity android:name=".PkgHouse.homeThermo_mainPkg.HouseThermostatActivity" />
+        <activity android:name=".PkgAutomobile.AutomobileActivity" />
         <activity
-            android:name=".homeThermostatPkg.homeThermo_mainPkg.AddNewTempActivity"
+            android:name=".PkgHouse.homeThermo_mainPkg.AddNewTempActivity"
             android:configChanges="orientation|keyboardHidden" />
-        <activity android:name=".homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity" />
-        <activity android:name=".homeThermostatPkg.adapterPkg.HelpActivity"></activity>
+        <activity android:name=".PkgHouse.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity" />
+        <activity android:name=".PkgHouse.adapterPkg.HelpActivity"></activity>
         <!--ActivityTracker-->
         <activity
-            android:name=".ActivityTrackingPkg.ActivityInsert"
+            android:name=".PkgActivity.ActivityInsert"
             android:windowSoftInputMode="stateVisible" />
-        <activity android:name=".ActivityTrackingPkg.ActivityUpdate" />
+        <activity android:name=".PkgActivity.ActivityUpdate" />
         <activity
-            android:name=".ActivityTrackingPkg.ActivityMenuHelp"
+            android:name=".PkgActivity.ActivityMenuHelp"
             android:label="@string/title_activity_menu_help"
             android:excludeFromRecents="true"
             android:theme="@style/Theme.AppCompat.Dialog"/>

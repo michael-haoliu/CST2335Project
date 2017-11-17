@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="523dp"
         android:orientation="vertical"
-        tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.HouseThermostatActivity"
+        tools:context=".PkgHouse.homeThermo_mainPkg.HouseThermostatActivity"
         tools:layout_editor_absoluteY="77dp">
         <!---->
         <!--android:layout_width="match_parent"-->

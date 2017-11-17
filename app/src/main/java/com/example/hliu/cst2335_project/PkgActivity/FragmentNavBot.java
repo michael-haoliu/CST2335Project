@@ -1,4 +1,4 @@
-package com.example.hliu.cst2335_project.ActivityTrackingPkg;
+package com.example.hliu.cst2335_project.PkgActivity;
 
 
 import android.os.Bundle;

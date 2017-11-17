@@ -1,4 +1,4 @@
-package com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg;
+package com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,7 +13,7 @@ import android.widget.NumberPicker;
 import android.widget.Spinner;
 
 import com.example.hliu.cst2335_project.R;
-import com.example.hliu.cst2335_project.homeThermostatPkg.DTO.DTO_TemperatureSetting;
+import com.example.hliu.cst2335_project.PkgHouse.DTO.DTO_TemperatureSetting;
 
 import java.util.Map;
 import java.util.TreeMap;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
+    tools:context=".PkgHouse.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
 
 
 <!--tools:context="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">-->

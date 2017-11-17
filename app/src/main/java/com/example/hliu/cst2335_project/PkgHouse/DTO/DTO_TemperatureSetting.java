@@ -1,4 +1,4 @@
-package com.example.hliu.cst2335_project.homeThermostatPkg.DTO;
+package com.example.hliu.cst2335_project.PkgHouse.DTO;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;

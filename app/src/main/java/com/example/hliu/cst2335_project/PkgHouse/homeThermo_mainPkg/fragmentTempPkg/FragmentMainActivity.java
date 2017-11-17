@@ -1,4 +1,4 @@
-package com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg;
+package com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg.fragmentTempPkg;
 
 import android.app.Activity;
 import android.app.Fragment;
