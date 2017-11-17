@@ -13,22 +13,24 @@
     <!--//&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;    -->
 
     <!--<string name="chooseDay_string">Choose day of week</string>-->
+    <string name="SUNDAY">SUNDAY</string>
     <string name="MONDAY">MONDAY</string>
     <string name="TUESDAY">TUESDAY</string>
     <string name="WEDNESDAY">WEDNESDAY</string>
     <string name="THURSDAY">THURSDAY</string>
     <string name="FRIDAY">FRIDAY</string>
     <string name="SATURDAY">SATURDAY</string>
-    <string name="SUNDAY">SUNDAY</string>
+
 
     <string-array name="stringArray_dayOfWeek_h">
+        <item>@string/SUNDAY</item>
         <item>@string/MONDAY</item>
         <item>@string/TUESDAY</item>
         <item>@string/WEDNESDAY</item>
         <item>@string/THURSDAY</item>
         <item>@string/FRIDAY</item>
         <item>@string/SATURDAY</item>
-        <item>@string/SUNDAY</item>
+
     </string-array>
 
     //---------------dialog listener add new Item

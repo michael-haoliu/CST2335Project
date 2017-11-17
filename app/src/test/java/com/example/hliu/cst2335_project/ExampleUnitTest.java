@@ -5,7 +5,6 @@ import com.example.hliu.cst2335_project.homeThermostatPkg.DTO.DTO_TemperatureSet
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import static org.junit.Assert.assertEquals;
@@ -41,26 +40,38 @@ public class ExampleUnitTest {
 //        Calendar calendar = Calendar.getInstance();
 
 
-            int dayOfWeek = tempObj.parseDayOfWeek("Sunday", Locale.US);
-            System.out.println(dayOfWeek);
-
-            dayOfWeek = tempObj.parseDayOfWeek("Tue", Locale.US);
-            System.out.println(dayOfWeek);
-
-            dayOfWeek = tempObj.parseDayOfWeek("Sonntag", Locale.GERMANY);
+            int dayOfWeek = tempObj.parseDayOfWeek("Sunday 01:10", Locale.US);
             System.out.println(dayOfWeek);
 
 
 
-        dayOfWeek = tempObj.parseDayOfWeek("星期日", Locale.CHINESE);
+            dayOfWeek = tempObj.parseDayOfWeek("Tue 01:10", Locale.US);
+            System.out.println(dayOfWeek);
+
+            dayOfWeek = tempObj.parseDayOfWeek("Sonntag 01:10", Locale.GERMANY);
+            System.out.println(dayOfWeek);
+
+
+
+        dayOfWeek = tempObj.parseDayOfWeek("星期日 01:10", Locale.CHINESE);
         System.out.println(dayOfWeek);
 
+        System.out.println("-------------");
+        int minOfWeek = tempObj.parseMinOfWeek("Sunday 01:10", Locale.US);
+        System.out.println(minOfWeek);
+        String string = tempObj.getStringDayOfWeek(minOfWeek, Locale.US);
 
-        Date date = new Date(dayOfWeek);
-        System.out.println("test data: " + date.toString());
+        minOfWeek = tempObj.parseMinOfWeek("SATURDAY 00:01", Locale.US);
+        System.out.println(minOfWeek);
+        string = tempObj.getStringDayOfWeek(minOfWeek, Locale.US);
 
-//        System.out.println("test data: " + DayOfWeek.valueOf(sunday));
+        minOfWeek = tempObj.parseMinOfWeek("SATURDAY 23:59", Locale.US);
+        System.out.println(minOfWeek);
+        string = tempObj.getStringDayOfWeek(minOfWeek, Locale.US);
 
+        minOfWeek = tempObj.parseMinOfWeek("SATURDAY 11:59", Locale.US);
+        System.out.println(minOfWeek);
+        string = tempObj.getStringDayOfWeek(minOfWeek, Locale.US);
 
         assertEquals(4, 2 + 2);
     }

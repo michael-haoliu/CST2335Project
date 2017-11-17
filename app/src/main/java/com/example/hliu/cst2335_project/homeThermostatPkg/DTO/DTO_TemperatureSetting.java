@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.io.Serializable;
-import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -80,6 +79,7 @@ public class DTO_TemperatureSetting extends AppCompatActivity implements Compara
     private int converDayToMin(String dayOfWeek){
         dayOfWeek = dayOfWeek.toUpperCase();
         switch (dayOfWeek){
+
             case "MONDAY":
                 return 0;
             case "TUESDAY":
@@ -103,21 +103,22 @@ public class DTO_TemperatureSetting extends AppCompatActivity implements Compara
     public String getDayOfWeek() {
         int dayOfWeek = timeOfWeek/MIN_PER_DAY;
         switch (dayOfWeek){
-            case 0:
+            case 1:
+                return "SUNDAY";
+            case 2:
 //                return getResources().getString(R.string.MONDAY);
                 return "MONDAY";
-            case 1:
-                return "TUESDAY";
-            case 2:
-                return "WEDNESDAY";
             case 3:
-                return "THURSDAY";
+                return "TUESDAY";
             case 4:
-                return "FRIDAY";
+                return "WEDNESDAY";
             case 5:
-                return "SATURDAY";
+                return "THURSDAY";
             case 6:
-                return "SUNDAY";
+                return "FRIDAY";
+            case 7:
+                return "SATURDAY";
+
         }
         return "something is wrong week of day";
     }
@@ -128,6 +129,8 @@ public class DTO_TemperatureSetting extends AppCompatActivity implements Compara
         int min = timeOfDay % 60;
 
 //        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+//        System.out.println(String.format("%02d:%02d", hour, min));
+
         return String.format("%02d:%02d", hour, min);
 //        return String.format("%H:%M", hour, min);
     }
@@ -171,42 +174,69 @@ public class DTO_TemperatureSetting extends AppCompatActivity implements Compara
     }
 
 
+    public int parseMinOfWeek(String Day_Hour_Min, Locale locale) {
+
+        try{
+            SimpleDateFormat dayFormat = new SimpleDateFormat("E HH:mm", locale);
+            Date date = dayFormat.parse(Day_Hour_Min);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+
+            int totalMin = calendar.get(Calendar.MINUTE) + calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.DAY_OF_WEEK) * MIN_PER_DAY;
+            return totalMin;
+        }catch (Exception e){
+
+            Log.e("DTO", "error parseMinofWeek: " + e.toString());
+            return -999;
+        }
+    }
+
+    public String getStringDayOfWeek(int minOfweek, Locale locale){
+        setTimeOfWeek(minOfweek);
+        String str_time = displayTime();
+//        System.out.println("test data: " + str_time  );
+        try{
+            SimpleDateFormat dayFormat = new SimpleDateFormat("E HH:mm", locale);
+            Date date = dayFormat.parse(str_time);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+
+            dayFormat = new SimpleDateFormat("EEEE HH:mm", locale);
+            String str = dayFormat.format(calendar.getTime());
+            System.out.println("test data: " + str );
+            return str;
+        }catch (Exception e){
+            return "exception of get string day of week by min of the week";
+        }
+
+    }
+
+
+    /*
+     not used this method
+     */
     public int parseDayOfWeek(String day, Locale locale)
             throws ParseException {
-        SimpleDateFormat dayFormat = new SimpleDateFormat("E", locale);
+
+        SimpleDateFormat dayFormat = new SimpleDateFormat("E HH:mm", locale);
         Date date = dayFormat.parse(day);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
-
-
-        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-
         dayFormat = new SimpleDateFormat("EEEE", locale);
         System.out.println("test data: " + dayFormat.format(date) );
 
+        dayFormat = new SimpleDateFormat("EEEE HH:mm", locale);
+        System.out.println("test data: " + dayFormat.format(date) );
+
+        int minOfweek = calendar.get(Calendar.MINUTE);
+        System.out.println("test data: " + minOfweek );
+
+
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         return dayOfWeek;
     }
 
-/*    SUNDAY
-            MONDAY
-    TUESDAY
-            WEDNESDAY
-    THURSDAY
-            FRIDAY
-    SATURDAY*/
-
-
-
-    public String displayTime_test() {
-        String[] days = new DateFormatSymbols(Locale.getDefault()).getWeekdays();
-
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat( , new DateFormatSymbols())
-
-
-        return getDayOfWeek() + " "
-                + getTimeOfDay();
-    }
 
     //-----------------------------
     public int getTimeOfWeek() {
