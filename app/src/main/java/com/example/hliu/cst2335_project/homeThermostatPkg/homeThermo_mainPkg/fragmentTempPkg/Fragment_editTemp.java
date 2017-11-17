@@ -42,6 +42,7 @@ public class Fragment_editTemp extends Fragment{
     private final double default_temp = 20.0;
     private DTO_TemperatureSetting newTemp;
 
+
     private TreeMap<Integer, Double> listTemp;
     private int time_msg;
     private double temperature_msg;
@@ -75,23 +76,23 @@ public class Fragment_editTemp extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
 
-        numberPicker_hour = (NumberPicker) myView.findViewById(R.id.numberPicker_hours_fg_h);
-        numberPicker_min = (NumberPicker) myView.findViewById(R.id.numberPicker_min_fg_h);
+        numberPicker_hour = myView.findViewById(R.id.numberPicker_hours_fg_h);
+        numberPicker_min = myView.findViewById(R.id.numberPicker_min_fg_h);
 
         numberPicker_hour.setMinValue(0);
         numberPicker_hour.setMaxValue(23);
         numberPicker_min.setMinValue(0);
         numberPicker_min.setMaxValue(59);
 
-        button_save = (Button) myView.findViewById(R.id.button_save_fg_h);
-        button_cancel = (Button)myView.findViewById(R.id.button_cancel_fg_h);
+        button_save = myView.findViewById(R.id.button_save_fg_h);
+        button_cancel = myView.findViewById(R.id.button_cancel_fg_h);
 
-        button_newRule = (Button) myView.findViewById(R.id.button_saveNewRule_fg_h);
-        button_delete = (Button) myView.findViewById(R.id.button_delete_fg_h);
+        button_newRule = myView.findViewById(R.id.button_saveNewRule_fg_h);
+        button_delete = myView.findViewById(R.id.button_delete_fg_h);
 
 
-        spinner_day = (Spinner) myView.findViewById(R.id.spinner_fg_h);
-        final EditText temp_editText = (EditText) myView.findViewById(R.id.temperature_fg_h);
+        spinner_day = myView.findViewById(R.id.spinner_fg_h);
+        final EditText temp_editText = myView.findViewById(R.id.temperature_fg_h);
 
         //-------------get the data from main fragment
         listTemp = new TreeMap<>((Map<Integer, Double>) getActivity().getIntent().getExtras().get("treeMap"));
@@ -101,7 +102,7 @@ public class Fragment_editTemp extends Fragment{
 
         String str = (new DTO_TemperatureSetting(time_msg,temperature_msg)).toString();
 
-        TextView title = (TextView) myView.findViewById(R.id.stringText_mainfragement_title);
+        TextView title = myView.findViewById(R.id.stringText_mainfragement_title);
 //        str = R.string.tempRule_selected_String_h + str;
         title.setText(str);
 
