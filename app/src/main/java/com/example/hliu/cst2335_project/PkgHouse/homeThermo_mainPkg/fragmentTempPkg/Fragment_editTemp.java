@@ -150,8 +150,8 @@ public class Fragment_editTemp extends Fragment {
             }
         });
 
-
-        button_save.setOnClickListener(new View.OnClickListener() {
+        button_newRule.setOnClickListener(new View.OnClickListener() {
+//        button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String day;
