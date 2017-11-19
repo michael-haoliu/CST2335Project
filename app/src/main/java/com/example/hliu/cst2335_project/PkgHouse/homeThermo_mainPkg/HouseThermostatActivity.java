@@ -93,11 +93,12 @@ public class HouseThermostatActivity extends Activity {
         listView.setAdapter(tempSetting_adapter);
 //---------------------------------------------------------
         listTemperature = read_sharedPre();
-        if(listTemperature == null){
-            // Probably initialize members with default values for a new instance
-            listTemperature = new TreeMap<>();
-            updateProgressBar(listTemperature);
-        }
+        updateProgressBar(listTemperature);
+//        if(listTemperature == null){
+//            // Probably initialize members with default values for a new instance
+//            listTemperature = new TreeMap<>();
+//            updateProgressBar(listTemperature);
+//        }
         //-------------------------------------
         updateListView_toolbar();
 
@@ -287,7 +288,8 @@ public class HouseThermostatActivity extends Activity {
             return treeMap;
         } else {
             // null; empty;
-            return null;
+//            return null;
+            return treeMap;
         }
 
     }
