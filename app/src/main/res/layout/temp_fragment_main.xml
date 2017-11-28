@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity">
 
     <TextView
@@ -17,15 +17,6 @@
         android:textAlignment="center"
         android:textSize="20sp" />
 
-<!--    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-
-        android:id="@+id/tempContainer_h"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">-->
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -33,13 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <fragment
-            android:name="com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg.fragmentTempPkg.Fragment_editTemp"
-            android:id="@+id/my_fragmentLayout_edit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout ="@layout/temp_fragment_temp_setting"
-        />
+        <!--<fragment-->
+            <!--android:name="com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg.fragmentTempPkg.Fragment_editTemp"-->
+            <!--android:id="@+id/my_fragmentLayout_edit"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--tools:layout ="@layout/temp_fragment_temp_setting"-->
+        <!--/>-->
     </FrameLayout>
 
 

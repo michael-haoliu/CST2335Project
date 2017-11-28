@@ -18,6 +18,7 @@ public class FragmentMainActivity extends Activity {
         getFragmentManager()
                 .beginTransaction()
                 .add(R.id.tempContainer_h, editFragment)
+//                .add(R.id.fragment_container_2_h, editFragment)
                 .commit();
 
 /*        android.support.v4.app.FragmentTransaction fragmentTransaction_1 = this.getSupportFragmentManager().beginTransaction();

@@ -93,6 +93,10 @@ public class HouseThermostatActivity extends Activity {
         listView.setAdapter(tempSetting_adapter);
 //---------------------------------------------------------
         listTemperature = read_sharedPre();
+//        if(listTemperature != null){
+//
+//        }
+
         updateProgressBar(listTemperature);
 //        if(listTemperature == null){
 //            // Probably initialize members with default values for a new instance
@@ -101,6 +105,7 @@ public class HouseThermostatActivity extends Activity {
 //        }
         //-------------------------------------
         updateListView_toolbar();
+
 
         //-----------------
         // Restore value of members from saved state
@@ -280,7 +285,8 @@ public class HouseThermostatActivity extends Activity {
         SharedPreferences sharedPreferences = getSharedPreferences(STORED_TREE_MAP, MODE_PRIVATE);
         treeSet = sharedPreferences.getStringSet(KEY_SetString, null);
 
-        if (sharedPreferences != null) {
+        if (treeSet != null) {
+//            if (sharedPreferences != null) {
             for (String treeStr : treeSet) {
                 DTO_TemperatureSetting obj = new DTO_TemperatureSetting(treeStr);
                 treeMap.put(obj.getTimeOfWeek(), obj.getTemp());
