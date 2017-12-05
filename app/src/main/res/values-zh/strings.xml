@@ -3,9 +3,85 @@
 
     <string name="string_ActivityTracking">活动跟踪</string>
     <string name="string_Auto">汽车</string>
-    <string name="app_name">项目</string>
     <string name="string_food">食品信息</string>
     <string name="string_houseThermo">温控器</string>
 
-
+    <!--ActivityTracker-->
+    <!--Home array-->
+    <string-array name="home_item_list">
+        <item>季度</item>
+        <item>课程</item>
+        <item>任务</item>
+        <item>类型</item>
+        <item>作者</item>
+        <item>活动跟踪作者</item>
+        <item>食品营养信息跟踪作者</item>
+        <item>房子恒温器作者</item>
+        <item>汽车作者</item>
+    </string-array>
+    <string-array name="home_content_list">
+        <item>2017 Fall</item>
+        <item>CST2335 Mobile Graphical Interface Prog</item>
+        <item>Final Assignment</item>
+        <item>Group Work</item>
+        <item>Hao Liu, Zhan Shen, Bin Yang, Geyan Huang</item>
+        <item>Geyan Huang</item>
+        <item>Zhan Shen</item>
+        <item>Hao Liu</item>
+        <item>Bin Yang</item>
+    </string-array>
+    <!--Activity array-->
+    <string-array name="activity_item_list">
+        <item>跑步</item>
+        <item>走路</item>
+        <item>骑车</item>
+        <item>游泳</item>
+        <item>滑冰</item>
+    </string-array>
+    <string name="app_name">通用工具</string>
+    <string name="navigation_drawer_open">打开导航抽屉</string>
+    <string name="navigation_drawer_close">关闭导航抽屉</string>
+    <string name="action_help">帮助</string>
+    <string name="action_quit">退出</string>
+    <string name="menu_activity">活动跟踪</string>
+    <string name="menu_food">食品营养信息跟踪</string>
+    <string name="menu_house">房子恒温器</string>
+    <string name="menu_automobile">汽车</string>
+    <string name="activity_insert">添加</string>
+    <string name="activity_insert_title">新建事件</string>
+    <string name="activity_insert_type">类别</string>
+    <string name="activity_insert_date">日期</string>
+    <string name="activity_insert_time">时间</string>
+    <string name="activity_insert_minute">分钟</string>
+    <string name="activity_insert_comment">描述</string>
+    <string name="activity_update_title">更新事件</string>
+    <string name="activity_update_delete">删除</string>
+    <string name="home_title">概述</string>
+    <string name="nav_others">其他</string>
+    <string name="activity_insert_empty">请输入你锻炼的时间！</string>
+    <string name="activity_insert_done">新建成功!</string>
+    <string name="activity_update_done">更新成功!</string>
+    <string name="activity_delete_done">删除成功!</string>
+    <string name="activity_delete_dialog_message">你确定你要删除?</string>
+    <string name="activity_delete_dialog_ok">确认</string>
+    <string name="activity_delete_dialog_cancel">取消</string>
+    <string name="activity_type_run">跑步</string>
+    <string name="activity_type_walk">走路</string>
+    <string name="activity_type_bike">骑车</string>
+    <string name="activity_type_swim">游泳</string>
+    <string name="activity_type_skate">滑冰</string>
+    <string name="activity_nav_bot_list">活动列表</string>
+    <string name="activity_nav_bot_dashboard">仪表板</string>
+    <string name="activity_dashboard_setdailygoal">设置每日目标 (分钟)</string>
+    <string name="activity_dashboard_dailyprogress">今日进度</string>
+    <string name="activity_dashboard_todayprogress"> 今日锻炼时间 (分钟)</string>
+    <string name="activity_dashboard_dailygoal">目标 (分钟)</string>
+    <string name="activity_dashboard_thismonth">本月锻炼总时间 (分钟)</string>
+    <string name="activity_dashboard_lastmonth">上月锻炼总时间 (分钟)</string>
+    <string name="title_activity_menu_help">帮助</string>
+    <string name="help_skip">跳过</string>
+    <string name="enter_food">进入食品营养信息跟踪...</string>
+    <string name="enter_house">进入房子恒温器...</string>
+    <string name="enter_automobile">进入汽车...</string>
+    <!--End of ActivityTracker-->
 </resources>

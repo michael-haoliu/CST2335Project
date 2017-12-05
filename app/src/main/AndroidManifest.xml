@@ -2,24 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hliu.cst2335_project">
 
+    <!-- To access Google+ APIs: -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".StartActivity">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".PkgHome.Home"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityTrackingActivity" />
-        <activity android:name=".FoodInformaitonActivity" />
-        <activity android:name=".HouseThermostatActivity" />
-        <activity android:name=".AutomobileActivity"></activity>
+        <activity android:name=".PkgFood.FoodInformaitonActivity" />
+        <activity android:name=".PkgHouse.homeThermo_mainPkg.HouseThermostatActivity" />
+        <activity android:name=".PkgAutomobile.AutomobileActivity" />
+        <activity
+            android:name=".PkgHouse.homeThermo_mainPkg.AddNewTempActivity"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".PkgHouse.homeThermo_mainPkg.fragmentTempPkg.FragmentMainActivity" />
+        <activity android:name=".PkgHouse.adapterPkg.HelpActivity"></activity>
+        <!--ActivityTracker-->
+        <activity
+            android:name=".PkgActivity.ActivityInsert"
+            android:windowSoftInputMode="stateVisible" />
+        <activity android:name=".PkgActivity.ActivityUpdate" />
+        <activity
+            android:name=".PkgActivity.ActivityMenuHelp"
+            android:label="@string/title_activity_menu_help"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+        <!--End of Activity-->
     </application>
 
 </manifest> <!-- android:theme="@style/AppTheme"> -->

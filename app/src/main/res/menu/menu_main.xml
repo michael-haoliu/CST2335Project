@@ -5,28 +5,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--<item android:title="Item" />-->
-
-
     <item
         android:id="@+id/ic_activity"
         android:icon="@drawable/ic_activity"
         android:title="@string/string_ActivityTracking"
-        app:showAsAction="always"></item>
+        app:showAsAction="always"/>
     <item
         android:id="@+id/ic_auto"
         android:icon="@drawable/ic_auto"
         android:title="@string/string_Auto"
-        app:showAsAction="withText|always"></item>
+        app:showAsAction="withText|always"/>
     <item
         android:id="@+id/ic_food"
         android:icon="@drawable/ic_food"
         android:title="@string/string_food"
-        app:showAsAction="withText|always"></item>
+        app:showAsAction="withText|always"/>
     <item
         android:id="@+id/ic_house"
         android:icon="@drawable/ic_house"
         android:title="@string/string_houseThermo"
-        app:showAsAction="always"></item>
+        app:showAsAction="always"/>
+
 
 
 </menu>

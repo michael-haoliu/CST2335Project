@@ -1,7 +1,153 @@
 <resources>
-    <string name="app_name">CST2335Project</string>
     <string name="string_ActivityTracking">Activity Tracking</string>
     <string name="string_Auto">Automobile</string>
     <string name="string_food">Food Info</string>
     <string name="string_houseThermo">House Thermostat</string>
+    <string name="title_activity_settings">Settings</string>
+
+
+    <!-- Strings related to Settings -->
+
+
+    <!--//&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;    -->
+
+    <!--<string name="chooseDay_string">Choose day of week</string>-->
+    <string name="SUNDAY">SUNDAY</string>
+    <string name="MONDAY">MONDAY</string>
+    <string name="TUESDAY">TUESDAY</string>
+    <string name="WEDNESDAY">WEDNESDAY</string>
+    <string name="THURSDAY">THURSDAY</string>
+    <string name="FRIDAY">FRIDAY</string>
+    <string name="SATURDAY">SATURDAY</string>
+
+
+    <string-array name="stringArray_dayOfWeek_h">
+        <item>@string/SUNDAY</item>
+        <item>@string/MONDAY</item>
+        <item>@string/TUESDAY</item>
+        <item>@string/WEDNESDAY</item>
+        <item>@string/THURSDAY</item>
+        <item>@string/FRIDAY</item>
+        <item>@string/SATURDAY</item>
+
+    </string-array>
+
+    //---------------dialog listener add new Item
+    <!--<string name="OK">OK</string>-->
+    <string name="OK_h">OK</string>
+    <string name="CANCEL_h">CANCEL</string>
+    <string name="timeExist_overwriteQuestion_h">The temperature rule exists, replace the rule?</string>
+    <string name="timeExist_deleteQuestion_h">Delete the temperature rule?</string>
+
+    //-----------------add new temp settings
+    <string name="title_addNew_h">Add new temperature rule</string>
+    <string name="title_delete_h">Delete temperature rule</string>
+
+    <string name="setDayofWeekString_h">Set Day of Week</string>
+    <string name="setTempString_h">set temperature</string>
+    <string name="setHourString_h">Set hour</string>
+    <string name="setMinString_h">Set minute</string>
+    <string name="saveString_h">Save</string>
+    <string name="deleteString_h">Delete this temperature rule</string>
+    <string name="cancelString_h">Cancel</string>
+    <string name="saveAsNewRuleString_h">Save as new rule</string>
+
+    <string name="tempRule_selected_String_h">You selected temperature rule: </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //----------------write help-------
+    <!--<emp> Help file for Add new rule </emp>-->
+    <!--<br></br>-->
+    <!--<h2> Help file for Add new rule </h2>-->
+
+    <string name="helpText_stringHTML_Add">
+            <![CDATA[
+             <h1> Help file for Add new rule </h1>
+                <p>This is a html-formatted string with <b>bold</b> and <i>italic</i> text</p>
+                <p>This is another paragraph of the same string.</p>
+            ]]>
+
+    </string>
+
+    <string name="helpText_stringHTML_delete">
+        Help file for delete old rule and undo
+    </string>
+
+    <!--ActivityTracker-->
+    <!--Home array-->
+    <string-array name="home_item_list">
+        <item>Season</item>
+        <item>Course</item>
+        <item>Assignment</item>
+        <item>Type</item>
+        <item>Authors</item>
+        <item>Activity Tracking Author</item>
+        <item>Food Nutrition information tracker Author</item>
+        <item>House Thermostat Author</item>
+        <item>Automobile Author</item>
+    </string-array>
+    <string-array name="home_content_list">
+        <item>2017 Fall</item>
+        <item>CST2335 Mobile Graphical Interface Prog</item>
+        <item>Final Assignment</item>
+        <item>Group Work</item>
+        <item>Hao Liu, Zhan Shen, Bin Yang, Geyan Huang</item>
+        <item>Geyan Huang</item>
+        <item>Zhan Shen</item>
+        <item>Hao Liu</item>
+        <item>Bin Yang</item>
+    </string-array>
+    <!--Activity array-->
+    <string-array name="activity_item_list">
+        <item>Running</item>
+        <item>Walking</item>
+        <item>Biking</item>
+        <item>Swimming</item>
+        <item>Skating</item>
+    </string-array>
+    <string name="app_name">Universal Tools</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_help">Help</string>
+    <string name="action_quit">Quit</string>
+    <string name="menu_activity">Activity Tracking</string>
+    <string name="menu_food">Food Nutrition information tracker</string>
+    <string name="menu_house">House Thermostat</string>
+    <string name="menu_automobile">Automobile</string>
+    <string name="activity_insert">Insert</string>
+    <string name="activity_insert_title">New Event</string>
+    <string name="activity_insert_minute">Minutes</string>
+    <string name="activity_insert_date">Date</string>
+    <string name="activity_insert_time">Time</string>
+    <string name="activity_insert_type">Type</string>
+    <string name="activity_insert_comment">Comments</string>
+    <string name="activity_update_title">Update Event</string>
+    <string name="activity_update_delete">Delete</string>
+    <string name="home_title">Overview</string>
+    <string name="nav_others">Others</string>
+    <string name="activity_insert_empty">Please input the minutes you have exercised!</string>
+    <string name="activity_insert_done">Insert successful!</string>
+    <string name="activity_update_done">Update successful!</string>
+    <string name="activity_delete_done">Delete successful!</string>
+    <string name="activity_delete_dialog_message">Are you sure you want delete?</string>
+    <string name="activity_delete_dialog_ok">OK</string>
+    <string name="activity_delete_dialog_cancel">Cancel</string>
+    <string name="activity_type_run">Running</string>
+    <string name="activity_type_walk">Walking</string>
+    <string name="activity_type_bike">Biking</string>
+    <string name="activity_type_swim">Swimming</string>
+    <string name="activity_type_skate">Skating</string>
+    <string name="activity_nav_bot_list">Activity List</string>
+    <string name="activity_nav_bot_dashboard">Dashboard</string>
+    <string name="activity_dashboard_setdailygoal">Set Daily Goal (Minute)</string>
+    <string name="activity_dashboard_dailyprogress">Today Progress</string>
+    <string name="activity_dashboard_todayprogress">Today Exercise (Minutes)</string>
+    <string name="activity_dashboard_dailygoal">Daily Goal (Minute)</string>
+    <string name="activity_dashboard_thismonth">This Month Total Exercise Time (Minute)</string>
+    <string name="activity_dashboard_lastmonth">Last Month Total Exercise Time (Minute)</string>
+    <string name="title_activity_menu_help">Help</string>
+    <string name="help_skip">Skip</string>
+    <!--End of ActivityTracker-->
 </resources>

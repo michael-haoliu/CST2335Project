@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.constraint.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hliu.cst2335_project.PkgHouse.homeThermo_mainPkg.AddNewTempActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_1_h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="@string/setDayofWeekString_h" />
+        <!--android:prompt="@string/MONDAY"-->
+        <!--android:entries="@array/stringArray_dayOfWeek"-->
+        <Spinner
+            android:id="@+id/spinner_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAlignment="center"
+            android:entries="@array/stringArray_dayOfWeek_h"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_21_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="84dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <!--android:layout_weight="1"-->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/setHourString_h" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker_hours_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--<Spinner-->
+        <!--android:id="@+id/hour"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="2"-->
+
+        <!--android:entries="@array/dayOfWeek_arry"-->
+        <!--android:prompt="@string/chooseDay_string"-->
+
+        <!--android:spinnerMode="dialog" />-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/timeOfDay"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="3"-->
+        <!--android:hint="Time"-->
+        <!--android:inputType="datetime"-->
+        <!--android:textAlignment="center" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_22_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="84dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.787"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="@string/setMinString_h" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker_min_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--<Spinner-->
+        <!--android:id="@+id/min"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="2"-->
+
+        <!--android:entries="@array/dayOfWeek_arry"-->
+        <!--android:prompt="@string/chooseDay_string"-->
+
+        <!--android:spinnerMode="dialog" />-->
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_3_h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="296dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101">
+
+        <TextView
+            android:layout_width="218dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="@string/setTempString_h" />
+
+        <EditText
+            android:id="@+id/temperature_h"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="@string/setTempString_h"
+            android:inputType="numberDecimal"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout_5_h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="388dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:dividerPadding="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button_save_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+
+            android:text="@string/saveString_h" />
+
+        <!--<Button-->
+            <!--android:id="@+id/button_saveNewRule_h"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="2"-->
+            <!--android:text="@string/saveAsNewRuleString_h" />-->
+
+        <Button
+            android:id="@+id/button_cancel_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="@string/cancelString_h"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <!--<fragment-->
+        <!--android:id="@+id/fragmentLayout_tempEdit_location_h"-->
+        <!--android:name="com.example.hliu.cst2335_project.homeThermostatPkg.homeThermo_mainPkg.fragmentTempPkg.Fragment_editTemp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+         <!--/>-->
+
+
+</android.support.constraint.ConstraintLayout>
